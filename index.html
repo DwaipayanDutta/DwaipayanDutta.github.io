@@ -7,45 +7,50 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <style>
     :root {
-      --primary: #0a66c2;
-      --bg: #f9fafc;
-      --text: #333;
-      --card: #ffffff;
+      --bg: #fefefe;
+      --text: #0a0a0a;
+      --accent: #ff4d00;
+      --muted: #999;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg);
-      margin: 0;
-      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 80px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 0.8s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 20px;
+      max-width: 900px;
+      width: 100%;
+      padding: 0 20px;
     }
 
     header {
       text-align: center;
-      padding: 40px 0 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.4em;
-      color: var(--primary);
-    }
-
-    .title {
-      font-weight: 500;
-      color: #555;
-      margin-bottom: 15px;
     }
 
     .profile-img {
@@ -53,147 +58,181 @@
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid var(--primary);
-      margin: 20px auto;
-      display: block;
+      border: 3px solid var(--accent);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-size: 1.1rem;
+      color: var(--muted);
     }
 
     .contact {
-      text-align: center;
-      font-size: 0.95em;
-      color: #555;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--text);
     }
 
     .contact a {
-      color: var(--primary);
+      color: var(--accent);
       text-decoration: none;
-      margin: 0 5px;
-    }
-
-    section {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    section h2 {
-      margin-top: 0;
-      color: var(--primary);
-      font-size: 1.4em;
-      display: flex;
+      margin: 0 8px;
+      display: inline-flex;
       align-items: center;
     }
 
-    section h2 i {
-      margin-right: 10px;
+    .contact img.icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
     }
 
     ul {
-      padding-left: 20px;
+      list-style: none;
     }
 
-    .experience h3 {
-      margin-bottom: 5px;
-      font-size: 1.1em;
+    ul li::before {
+      content: "\2022";
+      color: var(--accent);
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8em;
-      }
+    .job-title {
+      font-weight: bold;
+    }
 
-      .profile-img {
-        width: 100px;
-        height: 100px;
-      }
+    .job-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
 
-      .container {
-        padding: 10px;
-      }
+    .footer {
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: 40px;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="section" id="hero">
     <header>
       <img src="profile.jpg" alt="Dwaipayan Dutta" class="profile-img" />
       <h1>Dwaipayan Dutta</h1>
-      <div class="title"><i class="fas fa-user-tie"></i> Full Stack Data Scientist</div>
+      <div class="title">Full Stack Data Scientist</div>
       <div class="contact">
-        <div><i class="fas fa-phone"></i> +91 9538949218</div>
-        <div><i class="fas fa-envelope"></i> <a href="mailto:dwaipayandutt@gmail.com">dwaipayandutt@gmail.com</a></div>
+        <div><a href="mailto:dwaipayandutt@gmail.com">dwaipayandutt@gmail.com</a></div>
         <div>
-          <i class="fab fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/dwaipayan-dutta/">LinkedIn</a>
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/DwaipayanDutta">GitHub</a>
+          <a href="https://www.linkedin.com/in/dwaipayan-dutta/">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon">LinkedIn
+          </a>
+          ·
+          <a href="https://github.com/DwaipayanDutta">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" class="icon">GitHub
+          </a>
         </div>
-        <div><i class="fas fa-map-marker-alt"></i> Bangalore, India</div>
+        <div>Bangalore, India · +91 9538949218</div>
       </div>
     </header>
-
-    <section>
-      <h2><i class="fas fa-user"></i> Summary</h2>
-      <p>
-        Data Science Leader with 15+ years of experience in Retail, BFSI, and Consulting. Expert in deploying AI and ML solutions, leading cross-functional teams, and driving measurable business results. Skilled in Python, R, Azure, AWS, LLMs, and full-stack ML engineering.
-      </p>
-    </section>
-
-    <section class="experience">
-      <h2><i class="fas fa-briefcase"></i> Experience</h2>
-      <h3>Tata AIA Life Insurance – Head of Data Science (May 2023 – Present)</h3>
-      <ul>
-        <li>Led Gen-AI and ML initiatives with 40% reduction in issuance time using OCR & LLMs.</li>
-        <li>Built income estimation and underwriting models; increased conversion by 10%.</li>
-        <li>Developed recommender and onboarding systems for banking channels.</li>
-      </ul>
-
-      <h3>Deloitte India – Associate Director (2020 – 2023)</h3>
-      <ul>
-        <li>Forecasted pension liabilities with hierarchical models to optimize capital flow.</li>
-        <li>Optimized delivery routes and forecasting for India’s largest oil company.</li>
-      </ul>
-
-      <h3>Infosys Consulting – Sr. Lead Data Scientist (2018 – 2020)</h3>
-      <ul>
-        <li>Created SKU-level demand forecasts; reduced out-of-stock by 15% and added $0.8M revenue.</li>
-      </ul>
-
-      <h3>Earlier Roles</h3>
-      <ul>
-        <li><strong>Cognizant:</strong> $1.9M savings through claim denial prediction</li>
-        <li><strong>WNS:</strong> $2.4M recovered via fraud text mining</li>
-        <li><strong>TCS:</strong> Built retail price/promotion models & recommender systems</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2><i class="fas fa-cogs"></i> Skills</h2>
-      <ul>
-        <li>Languages & Tools: Python, R, SQL, SAS, FastAPI, Streamlit</li>
-        <li>AI/ML: XGBoost, LLMs, Random Forest, Deep Learning, GenAI</li>
-        <li>Cloud: Azure AI, AWS, ML Ops, Deployment Pipelines</li>
-        <li>Techniques: Recommender Systems, Forecasting, Regression, NLP</li>
-        <li>Leadership: Strategic Vision, Innovation, Team Management</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2><i class="fas fa-award"></i> Achievements</h2>
-      <ul>
-        <li>40% reduction in KYC/NACH time with LLM-OCR pipeline</li>
-        <li>$0.8M revenue gain via SKU forecasting (Infosys)</li>
-        <li>$2.4M recovery model (WNS) and $1.9M claim savings (Cognizant)</li>
-        <li>Speaker at CYPHER by Analytics India Magazine</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-      <p><strong>PGP in Business Analytics</strong><br/>Great Lakes Institute of Management, Chennai – 2016</p>
-    </section>
   </div>
+
+  <div class="section" id="summary">
+    <div class="container">
+      <h2>Summary</h2>
+      <p>
+        Data Science Leader with 15+ years of experience across Retail, BFSI, and Consulting. Expert in AI/ML deployment, leadership, and cross-functional collaboration. Proven success in aligning data solutions with business outcomes.
+      </p>
+    </div>
+  </div>
+
+  <div class="section" id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <p class="job-title">Head of Data Science – Tata AIA Life Insurance</p>
+      <p class="job-meta">May 2023 – Present</p>
+      <ul>
+        <li>Led GenAI and ML solutions reducing issuance time by 40%.</li>
+        <li>Developed income estimation models improving conversion by 10%.</li>
+        <li>Deployed onboarding and recommender systems for banking channels.</li>
+      </ul>
+      <p class="job-title">Associate Director – Deloitte India Consulting</p>
+      <p class="job-meta">Mar 2020 – May 2023</p>
+      <ul>
+        <li>Forecasted pension liabilities with hierarchical models.</li>
+        <li>Improved logistics with demand forecasting and route optimization.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul>
+        <li>Python, R, SQL, SAS, FastAPI, Streamlit</li>
+        <li>Azure AI, AWS, ML Ops, Deployment</li>
+        <li>XGBoost, Random Forest, Deep Learning, LLMs</li>
+        <li>Recommender Systems, Forecasting, NLP</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="achievements">
+    <div class="container">
+      <h2>Achievements</h2>
+      <ul>
+        <li>£2.4M recovery via predictive modeling (WNS).</li>
+        <li>$1.9M claim denial reduction (Cognizant).</li>
+        <li>Speaker at CYPHER by Analytics India Magazine.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="education">
+    <div class="container">
+      <h2>Education</h2>
+      <p><strong>PGP in Business Analytics</strong><br/>Great Lakes Institute of Management – 2016</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Dwaipayan Dutta · Inspired by HAU Studio
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const options = {
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
