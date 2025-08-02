@@ -3,127 +3,197 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dwaipayan Dutta - Resume</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Dwaipayan Dutta - Full Stack Data Scientist</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <style>
+    :root {
+      --primary: #0a66c2;
+      --bg: #f9fafc;
+      --text: #333;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 960px;
       margin: 0 auto;
       padding: 20px;
-      max-width: 900px;
-      background-color: #f4f6f8;
-      color: #333;
     }
-    h1 {
-      color: #004080;
+
+    header {
       text-align: center;
-      margin-bottom: 5px;
+      padding: 40px 0 20px;
     }
-    .section {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    header h1 {
+      margin: 0;
+      font-size: 2.4em;
+      color: var(--primary);
     }
-    .section h2 {
-      color: #004080;
-      border-bottom: 2px solid #004080;
-      padding-bottom: 5px;
+
+    .title {
+      font-weight: 500;
+      color: #555;
       margin-bottom: 15px;
     }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      margin: 20px auto;
+      display: block;
+    }
+
+    .contact {
+      text-align: center;
+      font-size: 0.95em;
+      color: #555;
+    }
+
+    .contact a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    section {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    section h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.4em;
+      display: flex;
+      align-items: center;
+    }
+
+    section h2 i {
+      margin-right: 10px;
+    }
+
     ul {
       padding-left: 20px;
     }
-    .contact, .contact a {
-      color: #333;
-      text-decoration: none;
+
+    .experience h3 {
+      margin-bottom: 5px;
+      font-size: 1.1em;
     }
-    .contact i {
-      color: #004080;
-      margin-right: 8px;
-    }
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-      margin: 10px auto;
-      border: 4px solid #004080;
-    }
-    .section i {
-      margin-right: 8px;
-      color: #004080;
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+
+      .profile-img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .container {
+        padding: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Dwaipayan Dutta</h1>
-  <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-  <p class="contact" style="text-align:center;">
-    <strong><i class="fas fa-user-tie"></i>Full Stack Data Scientist</strong><br/>
-    <i class="fas fa-phone"></i> +91 9538949218<br/>
-    <i class="fas fa-envelope"></i> <a href="mailto:dwaipayandutt@gmail.com">dwaipayandutt@gmail.com</a><br/>
-    <i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/dwaipayan-dutta/">LinkedIn</a> |
-    <i class="fab fa-github"></i> <a href="https://github.com/DwaipayanDutta">GitHub</a><br/>
-    <i class="fas fa-map-marker-alt"></i> Bangalore, India
-  </p>
+  <div class="container">
+    <header>
+      <img src="profile.jpg" alt="Dwaipayan Dutta" class="profile-img" />
+      <h1>Dwaipayan Dutta</h1>
+      <div class="title"><i class="fas fa-user-tie"></i> Full Stack Data Scientist</div>
+      <div class="contact">
+        <div><i class="fas fa-phone"></i> +91 9538949218</div>
+        <div><i class="fas fa-envelope"></i> <a href="mailto:dwaipayandutt@gmail.com">dwaipayandutt@gmail.com</a></div>
+        <div>
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/dwaipayan-dutta/">LinkedIn</a>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/DwaipayanDutta">GitHub</a>
+        </div>
+        <div><i class="fas fa-map-marker-alt"></i> Bangalore, India</div>
+      </div>
+    </header>
 
-  <div class="section">
-    <h2><i class="fas fa-user"></i> Summary</h2>
-    <p>
-      Data Science Leader with over 15 years of experience spanning Retail, BFSI, and Consulting sectors.
-      Demonstrated expertise in architecting and deploying advanced AI and machine learning solutions,
-      consistently leading cross-functional teams to achieve measurable business impact.
-    </p>
-  </div>
+    <section>
+      <h2><i class="fas fa-user"></i> Summary</h2>
+      <p>
+        Data Science Leader with 15+ years of experience in Retail, BFSI, and Consulting. Expert in deploying AI and ML solutions, leading cross-functional teams, and driving measurable business results. Skilled in Python, R, Azure, AWS, LLMs, and full-stack ML engineering.
+      </p>
+    </section>
 
-  <div class="section">
-    <h2><i class="fas fa-briefcase"></i> Experience</h2>
+    <section class="experience">
+      <h2><i class="fas fa-briefcase"></i> Experience</h2>
+      <h3>Tata AIA Life Insurance – Head of Data Science (May 2023 – Present)</h3>
+      <ul>
+        <li>Led Gen-AI and ML initiatives with 40% reduction in issuance time using OCR & LLMs.</li>
+        <li>Built income estimation and underwriting models; increased conversion by 10%.</li>
+        <li>Developed recommender and onboarding systems for banking channels.</li>
+      </ul>
 
-    <h3>Head of Data Science – Tata AIA Life Insurance (May 2023 – Present)</h3>
-    <ul>
-      <li>Led a multidisciplinary team in deploying Gen-AI and ML solutions.</li>
-      <li>Automated document data extraction, reduced issuance time by 40%, and achieved 99.1% accuracy.</li>
-      <li>Boosted underwriting and conversion rates by 10% using stacking techniques.</li>
-    </ul>
+      <h3>Deloitte India – Associate Director (2020 – 2023)</h3>
+      <ul>
+        <li>Forecasted pension liabilities with hierarchical models to optimize capital flow.</li>
+        <li>Optimized delivery routes and forecasting for India’s largest oil company.</li>
+      </ul>
 
-    <h3>Associate Director – Deloitte India Consulting (Mar 2020 – May 2023)</h3>
-    <ul>
-      <li>Led data science projects and managed cross-functional teams.</li>
-      <li>Built forecasting models for payouts to optimize fund utilization.</li>
-    </ul>
+      <h3>Infosys Consulting – Sr. Lead Data Scientist (2018 – 2020)</h3>
+      <ul>
+        <li>Created SKU-level demand forecasts; reduced out-of-stock by 15% and added $0.8M revenue.</li>
+      </ul>
 
-    <h3>Sr. Lead Data Scientist – Infosys Consulting (Sep 2018 – Mar 2020)</h3>
-    <ul>
-      <li>Developed demand forecasts across SKUs and channels.</li>
-      <li>Achieved 15% reduction in stockouts and $0.8M in incremental sales.</li>
-    </ul>
+      <h3>Earlier Roles</h3>
+      <ul>
+        <li><strong>Cognizant:</strong> $1.9M savings through claim denial prediction</li>
+        <li><strong>WNS:</strong> $2.4M recovered via fraud text mining</li>
+        <li><strong>TCS:</strong> Built retail price/promotion models & recommender systems</li>
+      </ul>
+    </section>
 
-    <!-- Additional roles abbreviated for brevity -->
-  </div>
+    <section>
+      <h2><i class="fas fa-cogs"></i> Skills</h2>
+      <ul>
+        <li>Languages & Tools: Python, R, SQL, SAS, FastAPI, Streamlit</li>
+        <li>AI/ML: XGBoost, LLMs, Random Forest, Deep Learning, GenAI</li>
+        <li>Cloud: Azure AI, AWS, ML Ops, Deployment Pipelines</li>
+        <li>Techniques: Recommender Systems, Forecasting, Regression, NLP</li>
+        <li>Leadership: Strategic Vision, Innovation, Team Management</li>
+      </ul>
+    </section>
 
-  <div class="section">
-    <h2><i class="fas fa-cogs"></i> Skills</h2>
-    <ul>
-      <li>Python, R, SQL, SAS</li>
-      <li>Azure, AWS, Azure AI, ML Ops</li>
-      <li>LLM, Generative AI, FastAPI, Streamlit</li>
-    </ul>
-  </div>
+    <section>
+      <h2><i class="fas fa-award"></i> Achievements</h2>
+      <ul>
+        <li>40% reduction in KYC/NACH time with LLM-OCR pipeline</li>
+        <li>$0.8M revenue gain via SKU forecasting (Infosys)</li>
+        <li>$2.4M recovery model (WNS) and $1.9M claim savings (Cognizant)</li>
+        <li>Speaker at CYPHER by Analytics India Magazine</li>
+      </ul>
+    </section>
 
-  <div class="section">
-    <h2><i class="fas fa-trophy"></i> Key Achievements</h2>
-    <ul>
-      <li>Reduced KYC processing time by 40% using OCR.</li>
-      <li>$2.4M recovery via advanced prediction model.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-    <p><strong>PGP in Business Analytics</strong><br/>Great Lakes, Chennai – 2016</p>
+    <section>
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      <p><strong>PGP in Business Analytics</strong><br/>Great Lakes Institute of Management, Chennai – 2016</p>
+    </section>
   </div>
 </body>
 </html>
