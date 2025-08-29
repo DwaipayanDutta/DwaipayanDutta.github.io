@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dwaipayan Dutta - Full Stack Data Scientist</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    :root {
+      --bg: #fefefe;
+      --text: #0a0a0a;
+      --accent: #ff4d00;
+      --muted: #999;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 80px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 0.8s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .contact {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 8px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .contact img.icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li::before {
+      content: "\2022";
+      color: var(--accent);
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    .job-title {
+      font-weight: bold;
+    }
+
+    .job-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: 40px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="section" id="hero">
+    <header>
+      <img src="profile.jpg" alt="Dwaipayan Dutta" class="profile-img" />
+      <h1>Dwaipayan Dutta</h1>
+      <div class="title">Full Stack Data Scientist</div>
+      <div class="contact">
+        <div><a href="mailto:dwaipayandutt@gmail.com">dwaipayandutt@gmail.com</a></div>
+        <div>
+          <a href="https://www.linkedin.com/in/dwaipayan-dutta/">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon">LinkedIn
+          </a>
+          ·
+          <a href="https://github.com/DwaipayanDutta">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" class="icon">GitHub
+          </a>
+        </div>
+        <div>Bangalore, India </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="section" id="summary">
+    <div class="container">
+      <h2>Summary</h2>
+      <p>
+        Data Science Leader with 15+ years of experience across Retail, BFSI, and Consulting. Expert in AI/ML deployment, leadership, and cross-functional collaboration. Proven success in aligning data solutions with business outcomes.
+      </p>
+    </div>
+  </div>
+
+  <div class="section" id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <p class="job-title">Head of Data Science – Tata AIA Life Insurance</p>
+      <p class="job-meta">May 2023 – Present</p>
+      <ul>
+        <li>Led GenAI and ML solutions reducing issuance time by 40%.</li>
+        <li>Developed income estimation models improving conversion by 10%.</li>
+        <li>Deployed onboarding and recommender systems for banking channels.</li>
+      </ul>
+      <p class="job-title">Associate Director – Deloitte India Consulting</p>
+      <p class="job-meta">Mar 2020 – May 2023</p>
+      <ul>
+        <li>Forecasted pension liabilities with hierarchical models.</li>
+        <li>Improved logistics with demand forecasting and route optimization.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul>
+        <li>Python, R, SQL, SAS, FastAPI, Streamlit</li>
+        <li>Azure AI, AWS, ML Ops, Deployment</li>
+        <li>XGBoost, Random Forest, Deep Learning, LLMs</li>
+        <li>Recommender Systems, Forecasting, NLP</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="achievements">
+    <div class="container">
+      <h2>Achievements</h2>
+      <ul>
+        <li>£2.4M recovery via predictive modeling (WNS).</li>
+        <li>$1.9M claim denial reduction (Cognizant).</li>
+        <li>Speaker at CYPHER by Analytics India Magazine.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="education">
+    <div class="container">
+      <h2>Education</h2>
+      <p><strong>PGP in Business Analytics</strong><br/>Great Lakes Institute of Management – 2016</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Dwaipayan Dutta · 
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const options = {
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
