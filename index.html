@@ -6,7 +6,7 @@
 <title>Dwaipayan Dutta — Data Science Leader &amp; AI Solution Architect</title>
 <meta name="description" content="Dwaipayan Dutta is a data science leader and AI solution architect with 17+ years of experience across banking, insurance, retail and consulting.">
 
-<!-- Fonts & External Styles -->
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -547,41 +547,49 @@ h1 span {
   font-weight: bold;
 }
 
+/* Updated Speaker Section matching image_2113ce */
 .speaker {
-  background: var(--ink);
-  color: var(--paper);
-  padding: 100px 8vw;
+  background: var(--coral);
+  color: var(--ink);
+  padding: 80px 0;
   position: relative;
   overflow: hidden;
 }
 
-.speaker:after {
-  content: "CYPHER";
-  position: absolute;
-  right: -25px;
-  bottom: -40px;
-  font-size: 13vw;
-  font-weight: 900;
-  letter-spacing: -.12em;
-  color: rgba(255, 255, 255, .04);
-  pointer-events: none;
+.speaker-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.speaker-content {
+  max-width: 720px;
 }
 
 .speaker .eyebrow {
-  color: var(--coral);
+  color: rgba(24, 51, 58, 0.7);
+  font-size: 10px;
+  margin-bottom: 20px;
 }
 
 .speaker h2 {
-  max-width: 900px;
-  margin-top: 30px;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -.04em;
+  font-weight: 700;
+  color: var(--ink);
 }
 
-.speaker p {
-  margin-top: 26px;
-  color: #b8c4c2;
-  max-width: 600px;
-  font-size: 15px;
-  line-height: 1.6;
+.speaker-icon {
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(24, 51, 58, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--ink);
+  flex-shrink: 0;
 }
 
 .footer {
@@ -691,7 +699,12 @@ h1 span {
     grid-template-columns: 1fr;
   }
   .speaker {
-    padding: 58px 24px;
+    padding: 58px 0;
+  }
+  .speaker-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
   }
   .footline {
     flex-direction: column;
@@ -1042,12 +1055,16 @@ h1 span {
     </div>
   </section>
 
-  <!-- Featured Speaker Section -->
+  <!-- Featured Speaker Banner (Terracotta/Coral Theme) -->
   <section class="speaker">
-    <div class="wrap">
-      <div class="eyebrow">05 / Signal beyond the model</div>
-      <h2>Featured speaker at<br><span>CYPHER by Analytics India Magazine.</span></h2>
-      <p>Presented innovative oil and gas analytics solutions, sharing how data science can meet the complexity of real-world energy challenges.</p>
+    <div class="wrap speaker-inner">
+      <div class="speaker-content">
+        <div class="eyebrow">// FEATURED SPEAKER</div>
+        <h2>Featured Speaker at<br>CYPHER by Analytics<br>India Magazine.</h2>
+      </div>
+      <div class="speaker-icon">
+        <span>⚏</span>
+      </div>
     </div>
   </section>
 
