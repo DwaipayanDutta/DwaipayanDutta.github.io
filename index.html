@@ -386,42 +386,74 @@ h1 span {
   line-height: 1.6;
 }
 
-.metrics {
+/* Metrics 3x2 Grid Styling */
+.metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
 }
 
-.metric {
+.metric-card {
   background: var(--paper);
-  padding: 28px 22px;
-  min-height: 180px;
+  padding: 24px 28px 28px;
+  min-height: 260px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.card-arrow {
+  color: var(--coral);
+  font-size: 12px;
+}
+
 .metric-value {
-  font-size: clamp(2.8rem, 4.5vw, 4.8rem);
-  line-height: .85;
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  line-height: .9;
   letter-spacing: -.05em;
   color: var(--teal);
   font-weight: 700;
+  margin: 16px 0;
+}
+
+.metric-value.stacked {
+  display: flex;
+  flex-direction: column;
+  line-height: .85;
+}
+
+.metric-value.stacked span:first-child {
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
 }
 
 .metric-label {
-  font-size: 10px;
-  color: var(--muted);
-  line-height: 1.5;
-  margin-top: 12px;
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 6px;
 }
 
 .metric-source {
-  font-size: 11px;
+  font-size: 9px;
   color: var(--muted);
-  margin-top: 4px;
+  letter-spacing: .08em;
+}
+
+.metrics-subfoot {
+  text-align: right;
+  margin-top: 18px;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: .12em;
 }
 
 .timeline {
@@ -645,8 +677,8 @@ h1 span {
   .section-head {
     margin-bottom: 50px;
   }
-  .metrics {
-    grid-template-columns: repeat(2, 1fr);
+  .metrics-grid {
+    grid-template-columns: 1fr;
   }
   .job {
     grid-template-columns: 1fr;
@@ -762,41 +794,96 @@ h1 span {
           <p class="copy" style="margin-top:24px">A record of outcomes, not activity.</p>
         </div>
       </div>
-      <div class="metrics">
-        <div class="metric">
+
+      <!-- 3-COLUMN x 2-ROW GRID -->
+      <div class="metrics-grid">
+        
+        <!-- Card 01 -->
+        <div class="metric-card">
+          <div class="card-head mono">
+            <span>01</span>
+            <span class="card-arrow">↗</span>
+          </div>
           <div class="metric-value">40%</div>
-          <div>
+          <div class="card-foot">
             <div class="metric-label">faster issuance</div>
-            <div class="metric-source">Tata AIA · OCR + LLM workflow</div>
+            <div class="metric-source mono">Tata AIA · OCR + LLM Workflow</div>
           </div>
         </div>
-        <div class="metric">
+
+        <!-- Card 02 -->
+        <div class="metric-card">
+          <div class="card-head mono">
+            <span>02</span>
+            <span class="card-arrow">↗</span>
+          </div>
           <div class="metric-value">99.1%</div>
-          <div>
-            <div class="metric-label">document accuracy</div>
-            <div class="metric-source">Tata AIA · Llama3.2-vision</div>
+          <div class="card-foot">
+            <div class="metric-label">OCR accuracy</div>
+            <div class="metric-source mono">KYC, PAN, Licences and NACH</div>
           </div>
         </div>
-        <div class="metric">
+
+        <!-- Card 03 -->
+        <div class="metric-card">
+          <div class="card-head mono">
+            <span>03</span>
+            <span class="card-arrow">↗</span>
+          </div>
+          <div class="metric-value">10%</div>
+          <div class="card-foot">
+            <div class="metric-label">conversion lift</div>
+            <div class="metric-source mono">Income Estimation + Pseudo PASA</div>
+          </div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="metric-card">
+          <div class="card-head mono">
+            <span>04</span>
+            <span class="card-arrow">↗</span>
+          </div>
           <div class="metric-value">$1.9M</div>
-          <div>
+          <div class="card-foot">
             <div class="metric-label">fewer claim denials</div>
-            <div class="metric-source">Cognizant · predictive analytics</div>
+            <div class="metric-source mono">Cognizant · Predictive Modelling</div>
           </div>
         </div>
-        <div class="metric">
-          <div class="metric-value">$2.4M</div>
-          <div>
-            <div class="metric-label">in claims recoveries</div>
-            <div class="metric-source">WNS · FNOL + fraud detection</div>
+
+        <!-- Card 05 -->
+        <div class="metric-card">
+          <div class="card-head mono">
+            <span>05</span>
+            <span class="card-arrow">↗</span>
+          </div>
+          <div class="metric-value stacked">
+            <span>USD</span>
+            <span>2.4M</span>
+          </div>
+          <div class="card-foot">
+            <div class="metric-label">recoveries</div>
+            <div class="metric-source mono">WNS · Fraud Detection</div>
           </div>
         </div>
+
+        <!-- Card 06 -->
+        <div class="metric-card">
+          <div class="card-head mono">
+            <span>06</span>
+            <span class="card-arrow">↗</span>
+          </div>
+          <div class="metric-value">15%</div>
+          <div class="card-foot">
+            <div class="metric-label">fewer out-of-stocks</div>
+            <div class="metric-source mono">Infosys · Demand Forecasting</div>
+          </div>
+        </div>
+
       </div>
-      <div style="margin-top:26px">
-        <span class="tag">25% better forecasts</span>
-        <span class="tag">15% fewer out-of-stocks</span>
-        <span class="tag">10% conversion lift</span>
-        <span class="tag">7% repeat purchase uplift</span>
+
+      <!-- Section Sub-foot -->
+      <div class="metrics-subfoot mono">
+        <span>SELECTED OUTCOMES ACROSS 2008 — PRESENT</span>
       </div>
     </div>
   </section>
