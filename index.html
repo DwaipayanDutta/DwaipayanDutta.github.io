@@ -64,6 +64,7 @@ a:hover {
   font-size: 11px;
 }
 
+/* Header */
 .site-header {
   height: 72px;
   border-bottom: 1px solid var(--line);
@@ -137,6 +138,7 @@ a:hover {
   font-weight: 700;
 }
 
+/* Hero */
 .hero {
   min-height: calc(100vh - 72px);
   display: grid;
@@ -216,7 +218,7 @@ h1 span {
   transform: translate(3px, 3px);
 }
 
-/* Dynamic Canvas Signal Graphics */
+/* Dynamic Canvas Signal Graphic */
 .signal {
   aspect-ratio: 1/1;
   max-width: 470px;
@@ -252,16 +254,8 @@ h1 span {
   z-index: 2;
 }
 
-.signal-label.one {
-  top: 24%;
-  right: 7%;
-}
-
-.signal-label.two {
-  bottom: 24%;
-  left: 7%;
-  color: var(--coral);
-}
+.signal-label.one { top: 24%; right: 7%; }
+.signal-label.two { bottom: 24%; left: 7%; color: var(--coral); }
 
 .signal-foot {
   position: absolute;
@@ -289,6 +283,7 @@ h1 span {
   z-index: 3;
 }
 
+/* Sections General */
 .section {
   padding: 120px 0;
   border-top: 1px solid var(--line);
@@ -315,9 +310,7 @@ h1 span {
   font-weight: 700;
 }
 
-.section h2 span {
-  color: var(--teal);
-}
+.section h2 span { color: var(--teal); }
 
 .lede {
   font-size: clamp(1.4rem, 2.3vw, 2.2rem);
@@ -348,7 +341,7 @@ h1 span {
   line-height: 1.6;
 }
 
-/* Metrics 3x2 Grid Styling */
+/* Metrics Grid */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -431,6 +424,7 @@ h1 span {
   letter-spacing: .12em;
 }
 
+/* Timeline */
 .timeline {
   border-top: 1px solid var(--line);
 }
@@ -492,50 +486,63 @@ h1 span {
   border-radius: 2px;
 }
 
-.cap-grid {
+/* Capabilities (Horizontal Layout - Reference Image 1) */
+.cap-list {
+  border-top: 1px solid var(--line);
+}
+
+.cap-item {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  grid-template-columns: 80px 1.2fr 1.8fr;
+  gap: 40px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
 }
 
-.cap {
-  background: var(--paper);
-  padding: 32px 28px;
-  min-height: 245px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.cap:hover {
-  background: #fff;
-  transform: translateY(-3px);
-  z-index: 2;
-  box-shadow: 0 10px 20px rgba(24, 51, 58, 0.05);
-}
-
-.cap h3 {
-  font-size: 18px;
-  margin-bottom: 22px;
-  font-weight: 600;
-}
-
-.cap ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 2;
-}
-
-.cap li:before {
-  content: "/ ";
+.cap-num {
+  font-size: 12px;
   color: var(--coral);
   font-weight: bold;
 }
 
-/* Speaker Section */
+.cap-details h3 {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.cap-details p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+.cap-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-pill {
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  font-size: 10px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.tag-pill:hover {
+  border-color: var(--teal);
+  background: #fff;
+}
+
+/* Speaker Banner */
 .speaker {
   background: var(--coral);
   color: var(--ink);
@@ -585,6 +592,7 @@ h1 span {
   transform: rotate(180deg);
 }
 
+/* Footer Section - Tuned to Reference Image 3 */
 .footer {
   padding: 120px 0 40px;
   border-top: 1px solid var(--line);
@@ -592,13 +600,13 @@ h1 span {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: .6fr 1.4fr;
+  grid-template-columns: .55fr 1.45fr;
   gap: 70px;
 }
 
 .footer h2 {
-  font-size: clamp(3.5rem, 8vw, 8rem);
-  line-height: .85;
+  font-size: clamp(4rem, 9.5vw, 9.5rem);
+  line-height: .88;
   letter-spacing: -.05em;
   font-weight: 700;
 }
@@ -607,28 +615,36 @@ h1 span {
   color: var(--teal);
 }
 
-.links {
+.footer-action-links {
   display: flex;
-  gap: 28px;
+  gap: 32px;
+  margin-top: 50px;
   flex-wrap: wrap;
-  margin-top: 42px;
 }
 
-.links a {
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 11px;
   border-bottom: 1px solid var(--ink);
-  padding-bottom: 7px;
+  padding-bottom: 4px;
   font-weight: 700;
 }
 
-.links a:hover {
+.action-link:hover {
   border-color: var(--teal);
+  color: var(--teal);
+}
+
+.action-link .icon {
+  font-size: 12px;
 }
 
 .footline {
   border-top: 1px solid var(--line);
-  margin-top: 110px;
-  padding-top: 18px;
+  margin-top: 120px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   color: var(--muted);
@@ -685,8 +701,9 @@ h1 span {
   .job-aside {
     padding-top: 0;
   }
-  .cap-grid {
+  .cap-item {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
   .speaker {
     padding: 58px 0;
@@ -698,7 +715,7 @@ h1 span {
   }
   .footline {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     margin-top: 75px;
   }
   h1 {
@@ -795,8 +812,6 @@ h1 span {
 
       <!-- 3-COLUMN x 2-ROW GRID -->
       <div class="metrics-grid">
-        
-        <!-- Card 01 -->
         <div class="metric-card reveal">
           <div class="card-head mono">
             <span>01</span>
@@ -809,7 +824,6 @@ h1 span {
           </div>
         </div>
 
-        <!-- Card 02 -->
         <div class="metric-card reveal">
           <div class="card-head mono">
             <span>02</span>
@@ -822,7 +836,6 @@ h1 span {
           </div>
         </div>
 
-        <!-- Card 03 -->
         <div class="metric-card reveal">
           <div class="card-head mono">
             <span>03</span>
@@ -835,7 +848,6 @@ h1 span {
           </div>
         </div>
 
-        <!-- Card 04 -->
         <div class="metric-card reveal">
           <div class="card-head mono">
             <span>04</span>
@@ -848,7 +860,6 @@ h1 span {
           </div>
         </div>
 
-        <!-- Card 05 -->
         <div class="metric-card reveal">
           <div class="card-head mono">
             <span>05</span>
@@ -864,7 +875,6 @@ h1 span {
           </div>
         </div>
 
-        <!-- Card 06 -->
         <div class="metric-card reveal">
           <div class="card-head mono">
             <span>06</span>
@@ -876,10 +886,8 @@ h1 span {
             <div class="metric-source mono">Infosys · Demand Forecasting</div>
           </div>
         </div>
-
       </div>
 
-      <!-- Section Sub-foot -->
       <div class="metrics-subfoot mono reveal">
         <span>SELECTED OUTCOMES ACROSS 2008 — PRESENT</span>
       </div>
@@ -993,49 +1001,73 @@ h1 span {
     </div>
   </section>
 
-  <!-- Capabilities Section -->
+  <!-- Capabilities Section (Refactored to match Reference Image 1 layout) -->
   <section id="capabilities" class="section">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow">04 / Capabilities</div>
         <div>
-          <p class="lede">The toolkit is broad. The standard is simple: deploy what the business can trust.</p>
+          <p class="copy mono" style="max-width:320px; font-size:10px; line-height:1.7;">A practical range, built across industries where the cost of a weak decision is visible.</p>
         </div>
       </div>
-      <div class="cap-grid">
-        <div class="cap reveal">
-          <h3>Model intelligence</h3>
-          <ul>
-            <li>Machine learning</li>
-            <li>Deep learning</li>
-            <li>Forecasting</li>
-            <li>Classification</li>
-            <li>Recommender systems</li>
-            <li>Generative AI · RAG · OCR</li>
-          </ul>
+      
+      <div class="cap-list">
+        
+        <!-- Cap 01 -->
+        <div class="cap-item reveal">
+          <div class="cap-num mono">01</div>
+          <div class="cap-details">
+            <h3>Model<br>intelligence</h3>
+            <p>From statistical foundations to modern generative systems, with the discipline to choose the simplest model that earns its place.</p>
+          </div>
+          <div class="cap-tags mono">
+            <span class="tag-pill">Statistics</span>
+            <span class="tag-pill">Machine Learning</span>
+            <span class="tag-pill">Deep Learning</span>
+            <span class="tag-pill">Forecasting</span>
+            <span class="tag-pill">Classification</span>
+            <span class="tag-pill">Bagging &amp; Boosting</span>
+            <span class="tag-pill">RAG</span>
+            <span class="tag-pill">AI Agents</span>
+          </div>
         </div>
-        <div class="cap reveal">
-          <h3>Production architecture</h3>
-          <ul>
-            <li>Python · SQL · R · SAS</li>
-            <li>Azure AI · AWS</li>
-            <li>FastAPI · Streamlit</li>
-            <li>Databricks · MLOps</li>
-            <li>AI agents &amp; workflow automation</li>
-            <li>Model deployment</li>
-          </ul>
+
+        <!-- Cap 02 -->
+        <div class="cap-item reveal">
+          <div class="cap-num mono">02</div>
+          <div class="cap-details">
+            <h3>Production<br>architecture</h3>
+            <p>Turning promising notebooks into reliable services, workflows, and operating models that teams can actually own.</p>
+          </div>
+          <div class="cap-tags mono">
+            <span class="tag-pill">AI Solution Deployment</span>
+            <span class="tag-pill">OCR</span>
+            <span class="tag-pill">Workflow Automation</span>
+            <span class="tag-pill">Model Deployment</span>
+            <span class="tag-pill">Industrialization</span>
+            <span class="tag-pill">MLOps</span>
+            <span class="tag-pill">Fast API</span>
+            <span class="tag-pill">Databricks</span>
+          </div>
         </div>
-        <div class="cap reveal">
-          <h3>Leadership &amp; delivery</h3>
-          <ul>
-            <li>Strategic leadership</li>
-            <li>Innovation</li>
-            <li>Project management</li>
-            <li>RFPs and POCs</li>
-            <li>Industrialization</li>
-            <li>Thought leadership</li>
-          </ul>
+
+        <!-- Cap 03 -->
+        <div class="cap-item reveal">
+          <div class="cap-num mono">03</div>
+          <div class="cap-details">
+            <h3>Leadership<br>that lands</h3>
+            <p>Aligning technical strategy with the commercial question, then taking people with the work from RFP through measurable result.</p>
+          </div>
+          <div class="cap-tags mono">
+            <span class="tag-pill">Strategic Leadership</span>
+            <span class="tag-pill">Innovation</span>
+            <span class="tag-pill">Project Management</span>
+            <span class="tag-pill">RFP and POCs</span>
+            <span class="tag-pill">Thought Leadership</span>
+            <span class="tag-pill">Supervised Fine-Tuning</span>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1053,22 +1085,32 @@ h1 span {
     </div>
   </section>
 
-  <!-- Footer Section -->
+  <!-- Footer Section (Tuned to match Reference Image 3) -->
   <footer id="contact" class="footer">
     <div class="wrap">
       <div class="footer-grid reveal">
         <div>
-          <div class="eyebrow">06 / Open channel</div>
-          <p class="copy" style="margin-top:28px;font-size:13px">For consequential AI work, thoughtful partnerships, and the questions that sit before the model.</p>
+          <div class="eyebrow">05 / Open channel</div>
+          <p class="copy mono" style="margin-top:24px; font-size:10px; line-height:1.7; max-width:260px;">
+            For consequential AI work, thoughtful partnerships, and the questions that sit before the model.
+          </p>
         </div>
         <div>
           <h2>Make the<br><span>next call.</span></h2>
-          <div class="links">
-            <a href="https://www.linkedin.com/in/dwaipayan-dutta/" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href="https://github.com/DwaipayanDutta" target="_blank" rel="noopener">GitHub ↗</a>
+          <div class="footer-action-links mono">
+            <a class="action-link" href="https://www.linkedin.com/in/dwaipayan-dutta/" target="_blank" rel="noopener">
+              LinkedIn <span class="icon">in</span>
+            </a>
+            <a class="action-link" href="https://github.com/DwaipayanDutta" target="_blank" rel="noopener">
+              GitHub <span class="icon">🐙</span>
+            </a>
+            <a class="action-link" href="#" onclick="navigator.clipboard.writeText('Dwaipayan Dutta'); alert('Copied name to clipboard!'); return false;">
+              Copy Name <span class="icon">⎘</span>
+            </a>
           </div>
         </div>
       </div>
+      
       <div class="footline mono">
         <span>Dwaipayan Dutta · Bangalore, India</span>
         <span>Data, when it matters.</span>
@@ -1082,9 +1124,7 @@ h1 span {
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ----------------------------------------------------
-     1. Scroll Reveal Animations (IntersectionObserver)
-  ---------------------------------------------------- */
+  /* Scroll Reveal Animations */
   const revealElements = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -1097,9 +1137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach(el => revealObserver.observe(el));
 
-  /* ----------------------------------------------------
-     2. Animated Metric Counters
-  ---------------------------------------------------- */
+  /* Animated Metric Counters */
   const counterElements = document.querySelectorAll('[data-val]');
   const counterObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -1111,12 +1149,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
         
         let startTimestamp = null;
-        const duration = 1800; // ms
+        const duration = 1800;
 
         const step = (timestamp) => {
           if (!startTimestamp) startTimestamp = timestamp;
           const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          // Ease out cubic function
           const easeProgress = 1 - Math.pow(1 - progress, 3);
           const currentVal = easeProgress * targetVal;
 
@@ -1137,13 +1174,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   counterElements.forEach(el => counterObserver.observe(el));
 
-  /* ----------------------------------------------------
-     3. Dynamic Canvas Signal Diagram
-  ---------------------------------------------------- */
+  /* Dynamic Canvas Signal Diagram */
   const canvas = document.getElementById('signalCanvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
-    let width, height, cx, cy;
+    let width, height;
     let angle = 0;
     let mouseX = 0, mouseY = 0;
 
@@ -1153,15 +1188,12 @@ document.addEventListener('DOMContentLoaded', () => {
       canvas.height = rect.height * window.devicePixelRatio;
       width = canvas.width;
       height = canvas.height;
-      cx = width / 2;
-      cy = height / 2;
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     }
 
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    // Mouse interactive physics offset
     canvas.parentElement.addEventListener('mousemove', (e) => {
       const rect = canvas.parentElement.getBoundingClientRect();
       mouseX = (e.clientX - rect.left - rect.width / 2) * 0.05;
@@ -1181,9 +1213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       ctx.clearRect(0, 0, cssW, cssH);
 
-      // Rotational Orbits
       angle += 0.008;
-
       const radii = [cssW * 0.34, cssW * 0.24, cssW * 0.14];
       
       radii.forEach((r, i) => {
@@ -1193,7 +1223,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        // Orbital nodes
         const nodeAngle = angle * (i % 2 === 0 ? 1 : -1) + (i * Math.PI / 3);
         const nx = cX + Math.cos(nodeAngle) * r;
         const ny = cY + Math.sin(nodeAngle) * r;
@@ -1204,7 +1233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fill();
       });
 
-      // Axis Line 1 (Teal)
+      // Axis 1
       ctx.save();
       ctx.translate(cX, cY);
       ctx.rotate(0.45);
@@ -1216,7 +1245,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.stroke();
       ctx.restore();
 
-      // Axis Line 2 (Coral)
+      // Axis 2
       ctx.save();
       ctx.translate(cX, cY);
       ctx.rotate(-0.7);
@@ -1228,7 +1257,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.stroke();
       ctx.restore();
 
-      // Center Node Pulsing
+      // Pulse Node
       const pulse = Math.sin(angle * 3) * 2;
       ctx.beginPath();
       ctx.arc(cX + 5, cY + 5, 8 + pulse, 0, Math.PI * 2);
@@ -1247,22 +1276,18 @@ document.addEventListener('DOMContentLoaded', () => {
     drawSignal();
   }
 
-  /* ----------------------------------------------------
-     4. Navigation Scroll Spy & Active State Link
-  ---------------------------------------------------- */
+  /* Navigation Scroll Spy & Active State Link */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.site-nav a');
   const siteHeader = document.getElementById('siteHeader');
 
   window.addEventListener('scroll', () => {
-    // Header shadow on scroll
     if (window.scrollY > 40) {
       siteHeader.classList.add('scrolled');
     } else {
       siteHeader.classList.remove('scrolled');
     }
 
-    // ScrollSpy
     let currentSection = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
