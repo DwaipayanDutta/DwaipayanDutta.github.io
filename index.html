@@ -74,6 +74,11 @@ a:hover {
   background: rgba(244, 240, 232, 0.95);
   backdrop-filter: blur(8px);
   z-index: 100;
+  transition: box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 4px 20px rgba(24, 51, 58, 0.05);
 }
 
 .header-inner {
@@ -101,6 +106,11 @@ a:hover {
   font-family: Georgia, serif;
   font-size: 14px;
   border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.brand:hover .mark {
+  transform: rotate(5deg) scale(1.05);
 }
 
 .site-nav {
@@ -113,10 +123,12 @@ a:hover {
 .site-nav a {
   padding: 8px 0;
   border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-.site-nav a:hover {
+.site-nav a.active, .site-nav a:hover {
   border-color: var(--coral);
+  color: var(--ink);
 }
 
 .connect {
@@ -196,8 +208,15 @@ h1 span {
   color: var(--coral);
   font-size: 16px;
   margin-left: 8px;
+  display: inline-block;
+  transition: transform 0.2s ease;
 }
 
+.hero-meta a:hover .arrow {
+  transform: translate(3px, 3px);
+}
+
+/* Dynamic Canvas Signal Graphics */
 .signal {
   aspect-ratio: 1/1;
   max-width: 470px;
@@ -210,87 +229,27 @@ h1 span {
   padding: 45px;
 }
 
-.signal:before, .signal:after {
-  content: "";
-  position: absolute;
-  background: rgba(239, 134, 111, .48);
-}
-
-.signal:before {
-  height: 1px;
-  left: 9%;
-  right: 9%;
-  top: 55%;
-}
-
-.signal:after {
-  width: 1px;
-  top: 9%;
-  bottom: 9%;
-  left: 55%;
-}
-
 .signal-inner {
   height: 100%;
+  width: 100%;
   position: relative;
   border: 1px solid rgba(24, 51, 58, .14);
+  overflow: hidden;
 }
 
-.orbit {
+#signalCanvas {
   position: absolute;
-  inset: 16%;
-  border: 1px solid rgba(24, 51, 58, .2);
-  border-radius: 50%;
-}
-
-.orbit.two {
-  inset: 32%;
-}
-
-.orbit.three {
-  inset: 44%;
-}
-
-.axis {
-  position: absolute;
-  width: 1px;
-  height: 125%;
-  background: var(--teal);
-  opacity: .65;
-  left: 55%;
-  top: -12%;
-  transform: rotate(26deg);
-}
-
-.axis.two {
-  transform: rotate(-41deg);
-  left: 42%;
-  background: var(--coral);
-}
-
-.node {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border: 1px solid var(--coral);
-  border-radius: 50%;
-  left: 53%;
-  top: 52%;
-  background: var(--paper);
-}
-
-.node:after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  background: var(--coral);
-  border-radius: 50%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .signal-label {
   position: absolute;
   font-size: 9px;
   color: var(--teal);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .signal-label.one {
@@ -313,6 +272,8 @@ h1 span {
   justify-content: space-between;
   color: #778285;
   font-size: 9px;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .signal-stamp {
@@ -325,6 +286,7 @@ h1 span {
   font-size: 10px;
   letter-spacing: .1em;
   box-shadow: 0 4px 12px rgba(239, 134, 111, 0.2);
+  z-index: 3;
 }
 
 .section {
@@ -402,6 +364,14 @@ h1 span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+.metric-card:hover {
+  background: #fff;
+  transform: translateY(-4px);
+  z-index: 2;
+  box-shadow: 0 12px 24px rgba(24, 51, 58, 0.06);
 }
 
 .card-head {
@@ -415,6 +385,11 @@ h1 span {
 .card-arrow {
   color: var(--coral);
   font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.metric-card:hover .card-arrow {
+  transform: translate(3px, -3px);
 }
 
 .metric-value {
@@ -466,6 +441,11 @@ h1 span {
   gap: 34px;
   padding: 36px 0;
   border-bottom: 1px solid var(--line);
+  transition: background-color 0.2s ease;
+}
+
+.job:hover {
+  background-color: rgba(24, 123, 112, 0.02);
 }
 
 .date {
@@ -524,6 +504,14 @@ h1 span {
   background: var(--paper);
   padding: 32px 28px;
   min-height: 245px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cap:hover {
+  background: #fff;
+  transform: translateY(-3px);
+  z-index: 2;
+  box-shadow: 0 10px 20px rgba(24, 51, 58, 0.05);
 }
 
 .cap h3 {
@@ -547,7 +535,7 @@ h1 span {
   font-weight: bold;
 }
 
-/* Updated Speaker Section matching image_2113ce */
+/* Speaker Section */
 .speaker {
   background: var(--coral);
   color: var(--ink);
@@ -590,6 +578,11 @@ h1 span {
   font-size: 20px;
   color: var(--ink);
   flex-shrink: 0;
+  transition: transform 0.5s ease;
+}
+
+.speaker:hover .speaker-icon {
+  transform: rotate(180deg);
 }
 
 .footer {
@@ -642,19 +635,16 @@ h1 span {
   font-size: 9px;
 }
 
-.tag {
-  display: inline-block;
-  color: var(--teal);
-  font-size: 9px;
-  border: 1px solid rgba(24, 123, 112, .35);
-  padding: 6px 10px;
-  margin: 6px 4px 0 0;
-  border-radius: 2px;
+/* Scroll Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.small {
-  font-size: 9px;
-  color: var(--muted);
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Responsive Overrides */
@@ -727,7 +717,7 @@ h1 span {
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="#top">
       <span class="mark">DD</span>
@@ -747,7 +737,7 @@ h1 span {
 
   <!-- Hero Section -->
   <section class="wrap hero">
-    <div>
+    <div class="reveal">
       <div class="kicker">Bangalore · India</div>
       <h1>Dwaipayan<br><span>Dutta.</span></h1>
       <p class="hero-role">Data Science Leader <b>|</b> AI Solution Architect</p>
@@ -758,14 +748,9 @@ h1 span {
       </div>
     </div>
     
-    <div class="signal" aria-label="Abstract decision systems graphic">
+    <div class="signal reveal" aria-label="Abstract decision systems graphic">
       <div class="signal-inner">
-        <div class="orbit"></div>
-        <div class="orbit two"></div>
-        <div class="orbit three"></div>
-        <div class="axis"></div>
-        <div class="axis two"></div>
-        <div class="node"></div>
+        <canvas id="signalCanvas"></canvas>
         <div class="signal-label one mono">● Signal / 01</div>
         <div class="signal-label two mono">● Impact / 07</div>
         <div class="signal-foot mono">
@@ -780,14 +765,14 @@ h1 span {
   <!-- Approach Section -->
   <section id="approach" class="section">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">01 / Approach</div>
         <div>
           <p class="lede">The work sits between the model, the operating reality, and the decision it needs to improve.</p>
           <p class="copy" style="margin-top:28px">Data Science Leader with over 17 years of experience spanning Retail, BFSI, and Consulting. I architect and deploy advanced AI and machine learning solutions, leading cross-functional teams toward measurable business impact.</p>
         </div>
       </div>
-      <div class="approach-grid">
+      <div class="approach-grid reveal">
         <h2>Serious AI <span>is not a demo.</span><br>It is a change in tempo.</h2>
         <div class="note">
           My role is to connect technical strategy to organizational goals: make the model useful, the workflow durable, and the result legible to the people accountable for it.<br><br>
@@ -800,7 +785,7 @@ h1 span {
   <!-- Impact Section -->
   <section id="impact" class="section">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">02 / Impact ledger</div>
         <div>
           <h2>Numbers that<br><span>survived contact.</span></h2>
@@ -812,12 +797,12 @@ h1 span {
       <div class="metrics-grid">
         
         <!-- Card 01 -->
-        <div class="metric-card">
+        <div class="metric-card reveal">
           <div class="card-head mono">
             <span>01</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value">40%</div>
+          <div class="metric-value" data-val="40" data-suffix="%">0%</div>
           <div class="card-foot">
             <div class="metric-label">faster issuance</div>
             <div class="metric-source mono">Tata AIA · OCR + LLM Workflow</div>
@@ -825,12 +810,12 @@ h1 span {
         </div>
 
         <!-- Card 02 -->
-        <div class="metric-card">
+        <div class="metric-card reveal">
           <div class="card-head mono">
             <span>02</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value">99.1%</div>
+          <div class="metric-value" data-val="99.1" data-suffix="%" data-decimals="1">0.0%</div>
           <div class="card-foot">
             <div class="metric-label">OCR accuracy</div>
             <div class="metric-source mono">KYC, PAN, Licences and NACH</div>
@@ -838,12 +823,12 @@ h1 span {
         </div>
 
         <!-- Card 03 -->
-        <div class="metric-card">
+        <div class="metric-card reveal">
           <div class="card-head mono">
             <span>03</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value">10%</div>
+          <div class="metric-value" data-val="10" data-suffix="%">0%</div>
           <div class="card-foot">
             <div class="metric-label">conversion lift</div>
             <div class="metric-source mono">Income Estimation + Pseudo PASA</div>
@@ -851,12 +836,12 @@ h1 span {
         </div>
 
         <!-- Card 04 -->
-        <div class="metric-card">
+        <div class="metric-card reveal">
           <div class="card-head mono">
             <span>04</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value">$1.9M</div>
+          <div class="metric-value" data-prefix="$" data-val="1.9" data-suffix="M" data-decimals="1">$0.0M</div>
           <div class="card-foot">
             <div class="metric-label">fewer claim denials</div>
             <div class="metric-source mono">Cognizant · Predictive Modelling</div>
@@ -864,14 +849,14 @@ h1 span {
         </div>
 
         <!-- Card 05 -->
-        <div class="metric-card">
+        <div class="metric-card reveal">
           <div class="card-head mono">
             <span>05</span>
             <span class="card-arrow">↗</span>
           </div>
           <div class="metric-value stacked">
             <span>USD</span>
-            <span>2.4M</span>
+            <span data-val="2.4" data-suffix="M" data-decimals="1">0.0M</span>
           </div>
           <div class="card-foot">
             <div class="metric-label">recoveries</div>
@@ -880,12 +865,12 @@ h1 span {
         </div>
 
         <!-- Card 06 -->
-        <div class="metric-card">
+        <div class="metric-card reveal">
           <div class="card-head mono">
             <span>06</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value">15%</div>
+          <div class="metric-value" data-val="15" data-suffix="%">0%</div>
           <div class="card-foot">
             <div class="metric-label">fewer out-of-stocks</div>
             <div class="metric-source mono">Infosys · Demand Forecasting</div>
@@ -895,7 +880,7 @@ h1 span {
       </div>
 
       <!-- Section Sub-foot -->
-      <div class="metrics-subfoot mono">
+      <div class="metrics-subfoot mono reveal">
         <span>SELECTED OUTCOMES ACROSS 2008 — PRESENT</span>
       </div>
     </div>
@@ -904,7 +889,7 @@ h1 span {
   <!-- Experience Section -->
   <section id="experience" class="section">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">03 / Experience</div>
         <div>
           <p class="lede">From retail models to regulated AI systems, a career spent turning ambiguity into operating leverage.</p>
@@ -912,7 +897,7 @@ h1 span {
       </div>
       <div class="timeline">
         
-        <article class="job">
+        <article class="job reveal">
           <div class="date">05/2023 — present<br>Bangalore, India</div>
           <div>
             <span class="current mono">Current</span>
@@ -926,7 +911,7 @@ h1 span {
           </div>
         </article>
 
-        <article class="job">
+        <article class="job reveal">
           <div class="date">03/2020 — 05/2023<br>Bangalore, India</div>
           <div>
             <h3>Associate Director Data Science and AI</h3>
@@ -939,7 +924,7 @@ h1 span {
           </div>
         </article>
 
-        <article class="job">
+        <article class="job reveal">
           <div class="date">03/2020 — 03/2022<br>Bangalore, India</div>
           <div>
             <h3>Manager Data Science and AI</h3>
@@ -952,7 +937,7 @@ h1 span {
           </div>
         </article>
 
-        <article class="job">
+        <article class="job reveal">
           <div class="date">09/2018 — 03/2020<br>Bangalore, India</div>
           <div>
             <h3>Sr. Lead Data Scientist</h3>
@@ -965,7 +950,7 @@ h1 span {
           </div>
         </article>
 
-        <article class="job">
+        <article class="job reveal">
           <div class="date">09/2016 — 09/2018<br>Bangalore, India</div>
           <div>
             <h3>Team Manager Data Science</h3>
@@ -978,7 +963,7 @@ h1 span {
           </div>
         </article>
 
-        <article class="job">
+        <article class="job reveal">
           <div class="date">05/2015 — 09/2016<br>Bangalore, India</div>
           <div>
             <h3>Assistant Manager Analytics</h3>
@@ -991,7 +976,7 @@ h1 span {
           </div>
         </article>
 
-        <article class="job">
+        <article class="job reveal">
           <div class="date">12/2008 — 05/2015<br>Vadodara, India</div>
           <div>
             <h3>Assistant Manager Advanced Analytics and Consulting</h3>
@@ -1011,14 +996,14 @@ h1 span {
   <!-- Capabilities Section -->
   <section id="capabilities" class="section">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">04 / Capabilities</div>
         <div>
           <p class="lede">The toolkit is broad. The standard is simple: deploy what the business can trust.</p>
         </div>
       </div>
       <div class="cap-grid">
-        <div class="cap">
+        <div class="cap reveal">
           <h3>Model intelligence</h3>
           <ul>
             <li>Machine learning</li>
@@ -1029,7 +1014,7 @@ h1 span {
             <li>Generative AI · RAG · OCR</li>
           </ul>
         </div>
-        <div class="cap">
+        <div class="cap reveal">
           <h3>Production architecture</h3>
           <ul>
             <li>Python · SQL · R · SAS</li>
@@ -1040,7 +1025,7 @@ h1 span {
             <li>Model deployment</li>
           </ul>
         </div>
-        <div class="cap">
+        <div class="cap reveal">
           <h3>Leadership &amp; delivery</h3>
           <ul>
             <li>Strategic leadership</li>
@@ -1055,8 +1040,8 @@ h1 span {
     </div>
   </section>
 
-  <!-- Featured Speaker Banner (Terracotta/Coral Theme) -->
-  <section class="speaker">
+  <!-- Featured Speaker Banner -->
+  <section class="speaker reveal">
     <div class="wrap speaker-inner">
       <div class="speaker-content">
         <div class="eyebrow">// FEATURED SPEAKER</div>
@@ -1071,7 +1056,7 @@ h1 span {
   <!-- Footer Section -->
   <footer id="contact" class="footer">
     <div class="wrap">
-      <div class="footer-grid">
+      <div class="footer-grid reveal">
         <div>
           <div class="eyebrow">06 / Open channel</div>
           <p class="copy" style="margin-top:28px;font-size:13px">For consequential AI work, thoughtful partnerships, and the questions that sit before the model.</p>
@@ -1093,6 +1078,210 @@ h1 span {
   </footer>
 
 </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ----------------------------------------------------
+     1. Scroll Reveal Animations (IntersectionObserver)
+  ---------------------------------------------------- */
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  /* ----------------------------------------------------
+     2. Animated Metric Counters
+  ---------------------------------------------------- */
+  const counterElements = document.querySelectorAll('[data-val]');
+  const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const targetVal = parseFloat(el.getAttribute('data-val'));
+        const prefix = el.getAttribute('data-prefix') || '';
+        const suffix = el.getAttribute('data-suffix') || '';
+        const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        
+        let startTimestamp = null;
+        const duration = 1800; // ms
+
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          // Ease out cubic function
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          const currentVal = easeProgress * targetVal;
+
+          el.innerText = `${prefix}${currentVal.toFixed(decimals)}${suffix}`;
+
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            el.innerText = `${prefix}${targetVal.toFixed(decimals)}${suffix}`;
+          }
+        };
+
+        window.requestAnimationFrame(step);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counterElements.forEach(el => counterObserver.observe(el));
+
+  /* ----------------------------------------------------
+     3. Dynamic Canvas Signal Diagram
+  ---------------------------------------------------- */
+  const canvas = document.getElementById('signalCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width, height, cx, cy;
+    let angle = 0;
+    let mouseX = 0, mouseY = 0;
+
+    function resizeCanvas() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio;
+      canvas.height = rect.height * window.devicePixelRatio;
+      width = canvas.width;
+      height = canvas.height;
+      cx = width / 2;
+      cy = height / 2;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Mouse interactive physics offset
+    canvas.parentElement.addEventListener('mousemove', (e) => {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      mouseX = (e.clientX - rect.left - rect.width / 2) * 0.05;
+      mouseY = (e.clientY - rect.top - rect.height / 2) * 0.05;
+    });
+
+    canvas.parentElement.addEventListener('mouseleave', () => {
+      mouseX = 0;
+      mouseY = 0;
+    });
+
+    function drawSignal() {
+      const cssW = width / window.devicePixelRatio;
+      const cssH = height / window.devicePixelRatio;
+      const cX = cssW / 2 + mouseX;
+      const cY = cssH / 2 + mouseY;
+
+      ctx.clearRect(0, 0, cssW, cssH);
+
+      // Rotational Orbits
+      angle += 0.008;
+
+      const radii = [cssW * 0.34, cssW * 0.24, cssW * 0.14];
+      
+      radii.forEach((r, i) => {
+        ctx.beginPath();
+        ctx.arc(cX, cY, r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(24, 51, 58, ${0.12 + i * 0.05})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Orbital nodes
+        const nodeAngle = angle * (i % 2 === 0 ? 1 : -1) + (i * Math.PI / 3);
+        const nx = cX + Math.cos(nodeAngle) * r;
+        const ny = cY + Math.sin(nodeAngle) * r;
+
+        ctx.beginPath();
+        ctx.arc(nx, ny, 3, 0, Math.PI * 2);
+        ctx.fillStyle = i === 0 ? '#ef866f' : '#187b70';
+        ctx.fill();
+      });
+
+      // Axis Line 1 (Teal)
+      ctx.save();
+      ctx.translate(cX, cY);
+      ctx.rotate(0.45);
+      ctx.beginPath();
+      ctx.moveTo(0, -cssH);
+      ctx.lineTo(0, cssH);
+      ctx.strokeStyle = 'rgba(24, 123, 112, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.restore();
+
+      // Axis Line 2 (Coral)
+      ctx.save();
+      ctx.translate(cX, cY);
+      ctx.rotate(-0.7);
+      ctx.beginPath();
+      ctx.moveTo(0, -cssH);
+      ctx.lineTo(0, cssH);
+      ctx.strokeStyle = 'rgba(239, 134, 111, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.restore();
+
+      // Center Node Pulsing
+      const pulse = Math.sin(angle * 3) * 2;
+      ctx.beginPath();
+      ctx.arc(cX + 5, cY + 5, 8 + pulse, 0, Math.PI * 2);
+      ctx.strokeStyle = '#ef866f';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(cX + 5, cY + 5, 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#ef866f';
+      ctx.fill();
+
+      requestAnimationFrame(drawSignal);
+    }
+
+    drawSignal();
+  }
+
+  /* ----------------------------------------------------
+     4. Navigation Scroll Spy & Active State Link
+  ---------------------------------------------------- */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.site-nav a');
+  const siteHeader = document.getElementById('siteHeader');
+
+  window.addEventListener('scroll', () => {
+    // Header shadow on scroll
+    if (window.scrollY > 40) {
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
+
+    // ScrollSpy
+    let currentSection = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.clientHeight;
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSection}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+});
+</script>
 
 </body>
 </html>
