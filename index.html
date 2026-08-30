@@ -3,23 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dwaipayan Dutta — Data Science Leader &amp; AI Solution Architect</title>
+<title>Dwaipayan Dutta — Data Science Leader &amp; AI Strategy</title>
 <meta name="description" content="Dwaipayan Dutta is a data science leader and AI solution architect with 17+ years of experience across banking, insurance, retail and consulting.">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --paper: #f4f0e8;
   --ink: #18333a;
   --teal: #187b70;
+  --teal-light: rgba(24, 123, 112, 0.1);
   --coral: #ef866f;
   --muted: #657478;
   --line: #d9d1c3;
-  --max: 1240px;
+  --max: 1280px;
 }
 
 * {
@@ -37,12 +38,13 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 a:hover {
@@ -50,39 +52,41 @@ a:hover {
 }
 
 .wrap {
-  width: min(var(--max), calc(100% - 96px));
+  width: min(var(--max), calc(100% - 64px));
   margin: auto;
 }
 
-.mono, .eyebrow, nav, .kicker, .metric-label, .date, .tag, .small {
+.mono, .eyebrow, nav, .kicker, .metric-label, .date, .tag, .small, .connect-btn, .footer-link {
   font-family: 'Courier Prime', "Courier New", monospace;
   text-transform: uppercase;
-  letter-spacing: .12em;
+  letter-spacing: .14em;
 }
 
 .mono {
   font-size: 11px;
 }
 
-/* Header - Constrained to Page Alignment */
+/* --- Fixed Header & Margins --- */
 .site-header {
   height: 80px;
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
-  background: var(--paper);
+  background: rgba(244, 240, 232, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 100;
-  width: 100%;
 }
 
 .header-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  width: min(var(--max), calc(100% - 96px));
   height: 100%;
-  margin: auto;
-  padding: 0;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .brand {
@@ -91,59 +95,83 @@ a:hover {
   gap: 16px;
   font-weight: 700;
   font-size: 15px;
-  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 .mark {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   background: var(--teal);
   color: #fff;
   display: grid;
   place-items: center;
-  font-family: 'Courier Prime', monospace;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.05em;
-  border-radius: 0px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 0;
 }
 
 .site-nav {
   display: flex;
-  gap: 40px;
+  justify-content: center;
+  gap: 48px;
   font-size: 11px;
-  color: #526469;
-  align-items: center;
-}
-
-.site-nav a {
-  padding: 28px 0;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-.site-nav a.active, .site-nav a:hover {
-  border-color: var(--coral);
   color: var(--ink);
 }
 
-.connect {
+.site-nav a {
+  opacity: 0.85;
+}
+
+.site-nav a:hover {
+  opacity: 1;
+}
+
+/* Header Action Group (Icons + Connect) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-self: end;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icon-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.icon-link:hover {
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+
+.connect-btn {
   color: var(--teal);
   font-size: 11px;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin-left: 6px;
 }
 
-/* Hero */
+.connect-btn:hover {
+  color: var(--coral);
+}
+
+/* --- Hero Section --- */
 .hero {
   min-height: calc(100vh - 80px);
   display: grid;
   grid-template-columns: 1.1fr .9fr;
   gap: 70px;
   align-items: center;
-  padding: 70px 0 90px;
+  padding: 60px 0 90px;
 }
 
 .kicker {
@@ -152,6 +180,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-weight: 700;
 }
 
 .kicker:before {
@@ -166,35 +195,37 @@ h1, h2, h3, p {
 }
 
 h1 {
-  font-size: clamp(4.2rem, 9vw, 8.5rem);
-  line-height: .85;
-  letter-spacing: -.06em;
-  margin: 36px 0 38px;
+  font-size: clamp(4.2rem, 8.5vw, 7.8rem);
+  line-height: .88;
+  letter-spacing: -.05em;
+  margin: 30px 0 28px;
   max-width: 800px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 h1 span {
   color: var(--teal);
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+h1:hover span {
+  transform: translateX(6px);
 }
 
 .hero-role {
-  font-size: clamp(1.45rem, 2.5vw, 2.3rem);
-  line-height: 1.15;
-  color: #687579;
-  max-width: 560px;
-}
-
-.hero-role b {
-  color: var(--coral);
-  font-weight: normal;
+  font-size: clamp(1.4rem, 2.3vw, 2.1rem);
+  line-height: 1.2;
+  color: var(--ink);
+  font-weight: 600;
+  max-width: 600px;
 }
 
 .hero-meta {
   display: flex;
   gap: 24px;
   align-items: center;
-  margin-top: 54px;
+  margin-top: 48px;
   color: #687579;
 }
 
@@ -204,19 +235,24 @@ h1 span {
   background: var(--line);
 }
 
+.hero-meta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+}
+
 .arrow {
   color: var(--coral);
   font-size: 16px;
-  margin-left: 8px;
-  display: inline-block;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .hero-meta a:hover .arrow {
-  transform: translate(3px, 3px);
+  transform: translate(4px, 4px);
 }
 
-/* Canvas Signal Graphic */
+/* Signal Graphic */
 .signal {
   aspect-ratio: 1/1;
   max-width: 470px;
@@ -224,37 +260,112 @@ h1 span {
   justify-self: end;
   position: relative;
   border: 1px solid var(--line);
-  background-image: linear-gradient(rgba(24, 51, 58, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(24, 51, 58, .06) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(24, 51, 58, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(24, 51, 58, .05) 1px, transparent 1px);
   background-size: 27px 27px;
   padding: 45px;
-  border-radius: 0px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.radar-sweep {
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 300deg, rgba(24, 123, 112, 0.12) 360deg);
+  animation: rotate 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .signal-inner {
   height: 100%;
-  width: 100%;
   position: relative;
   border: 1px solid rgba(24, 51, 58, .14);
-  overflow: hidden;
+  background: rgba(255,255,255,0.2);
 }
 
-#signalCanvas {
+.orbit {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: 16%;
+  border: 1px dashed rgba(24, 51, 58, .25);
+  border-radius: 50%;
+  animation: spinSlow 30s linear infinite;
+}
+
+.orbit.two {
+  inset: 32%;
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+
+.orbit.three {
+  inset: 44%;
+}
+
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+
+.axis {
+  position: absolute;
+  width: 1px;
+  height: 125%;
+  background: var(--teal);
+  opacity: .5;
+  left: 55%;
+  top: -12%;
+  transform: rotate(26deg);
+}
+
+.axis.two {
+  transform: rotate(-41deg);
+  left: 42%;
+  background: var(--coral);
+}
+
+.node {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--coral);
+  border-radius: 50%;
+  left: 53%;
+  top: 52%;
+  background: var(--paper);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.node::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: var(--coral);
+  border-radius: 50%;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
 }
 
 .signal-label {
   position: absolute;
   font-size: 9px;
   color: var(--teal);
-  pointer-events: none;
-  z-index: 2;
+  font-weight: 700;
+  background: rgba(244, 240, 232, 0.8);
+  padding: 2px 6px;
+  border-radius: 2px;
 }
 
-.signal-label.one { top: 24%; right: 7%; }
-.signal-label.two { bottom: 24%; left: 7%; color: var(--coral); }
+.signal-label.one { top: 22%; right: 5%; }
+.signal-label.two { bottom: 22%; left: 5%; color: var(--coral); }
 
 .signal-foot {
   position: absolute;
@@ -265,26 +376,27 @@ h1 span {
   justify-content: space-between;
   color: #778285;
   font-size: 9px;
-  pointer-events: none;
-  z-index: 2;
+  font-weight: 700;
 }
 
 .signal-stamp {
   position: absolute;
-  bottom: -28px;
-  left: 9%;
+  bottom: 0px;
+  left: 0%;
+  right: 0%;
   background: var(--coral);
   color: #fff;
   padding: 12px 16px;
   font-size: 10px;
   letter-spacing: .1em;
-  box-shadow: 0 4px 12px rgba(239, 134, 111, 0.2);
-  z-index: 3;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(239, 134, 111, 0.25);
 }
 
-/* Sections */
+/* Section Common */
 .section {
-  padding: 120px 0;
+  padding: 110px 0;
   border-top: 1px solid var(--line);
 }
 
@@ -292,7 +404,7 @@ h1 span {
   display: grid;
   grid-template-columns: .55fr 1.45fr;
   gap: 60px;
-  margin-bottom: 75px;
+  margin-bottom: 70px;
 }
 
 .eyebrow {
@@ -302,68 +414,76 @@ h1 span {
 }
 
 .section h2 {
-  font-size: clamp(3.1rem, 7vw, 6.5rem);
-  line-height: .88;
-  letter-spacing: -.05em;
+  font-size: clamp(3rem, 6.5vw, 6rem);
+  line-height: .9;
+  letter-spacing: -.04em;
   max-width: 900px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
-.section h2 span { color: var(--teal); }
+.section h2 span {
+  color: var(--teal);
+}
 
 .lede {
-  font-size: clamp(1.4rem, 2.3vw, 2.2rem);
-  color: #687579;
+  font-size: clamp(1.35rem, 2.2vw, 2.1rem);
+  color: var(--ink);
   max-width: 760px;
-  line-height: 1.18;
+  line-height: 1.25;
+  font-weight: 600;
 }
 
 .copy {
-  color: #687579;
+  color: var(--muted);
   max-width: 680px;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
+/* Approach Section */
 .approach-grid {
   display: grid;
   grid-template-columns: 1.15fr .85fr;
-  gap: 90px;
+  gap: 80px;
   align-items: flex-end;
 }
 
 .note {
   border-left: 2px solid var(--coral);
-  padding-left: 20px;
+  padding: 16px 20px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
+  background: rgba(239, 134, 111, 0.03);
+  border-radius: 0 4px 4px 0;
 }
 
-/* Metrics Grid */
+/* Impact Section */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .metric-card {
   background: var(--paper);
-  padding: 24px 28px 28px;
-  min-height: 260px;
+  padding: 32px 28px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .metric-card:hover {
-  background: #fff;
-  transform: translateY(-4px);
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
   z-index: 2;
-  box-shadow: 0 12px 24px rgba(24, 51, 58, 0.06);
 }
 
 .card-head {
@@ -372,24 +492,20 @@ h1 span {
   align-items: center;
   font-size: 10px;
   color: var(--muted);
+  font-weight: 700;
 }
 
 .card-arrow {
   color: var(--coral);
   font-size: 12px;
-  transition: transform 0.3s ease;
-}
-
-.metric-card:hover .card-arrow {
-  transform: translate(3px, -3px);
 }
 
 .metric-value {
-  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-size: clamp(3rem, 4.8vw, 4.8rem);
   line-height: .9;
-  letter-spacing: -.05em;
+  letter-spacing: -.04em;
   color: var(--teal);
-  font-weight: 700;
+  font-weight: 800;
   margin: 16px 0;
 }
 
@@ -400,12 +516,13 @@ h1 span {
 }
 
 .metric-value.stacked span:first-child {
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-size: clamp(1.8rem, 3vw, 3rem);
 }
 
 .metric-label {
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--ink);
+  font-weight: 600;
   margin-bottom: 6px;
 }
 
@@ -421,24 +538,25 @@ h1 span {
   font-size: 9px;
   color: var(--muted);
   letter-spacing: .12em;
+  font-weight: 700;
 }
 
-/* Timeline */
+/* --- Full Experience Timeline --- */
 .timeline {
   border-top: 1px solid var(--line);
 }
 
 .job {
   display: grid;
-  grid-template-columns: 155px 1fr 280px;
+  grid-template-columns: 180px 1fr 260px;
   gap: 34px;
-  padding: 36px 0;
+  padding: 40px 0;
   border-bottom: 1px solid var(--line);
-  transition: background-color 0.2s ease;
+  transition: background 0.3s ease;
 }
 
 .job:hover {
-  background-color: rgba(24, 123, 112, 0.02);
+  background: rgba(255,255,255,0.4);
 }
 
 .date {
@@ -448,9 +566,9 @@ h1 span {
 }
 
 .job h3 {
-  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
   letter-spacing: -.02em;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .company {
@@ -465,7 +583,7 @@ h1 span {
   color: var(--muted);
   font-size: 14px;
   max-width: 700px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .job-aside {
@@ -478,121 +596,95 @@ h1 span {
   display: inline-block;
   background: var(--teal);
   color: #fff;
-  padding: 4px 7px;
+  padding: 4px 8px;
   margin-bottom: 10px;
   font-size: 9px;
   font-weight: 700;
-  border-radius: 0px;
+  border-radius: 2px;
 }
 
 /* Capabilities */
-.cap-list {
-  border-top: 1px solid var(--line);
-}
-
-.cap-item {
+.cap-grid {
   display: grid;
-  grid-template-columns: 80px 1.2fr 1.8fr;
-  gap: 40px;
-  padding: 48px 0;
-  border-bottom: 1px solid var(--line);
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.cap-num {
-  font-size: 12px;
+.cap {
+  background: var(--paper);
+  padding: 36px 28px;
+  min-height: 250px;
+}
+
+.cap:hover {
+  background: #ffffff;
+}
+
+.cap h3 {
+  font-size: 18px;
+  margin-bottom: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cap ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 2;
+}
+
+.cap li:before {
+  content: "/ ";
   color: var(--coral);
   font-weight: bold;
 }
 
-.cap-details h3 {
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-  line-height: 1.05;
-  letter-spacing: -.03em;
-  font-weight: 600;
-  margin-bottom: 14px;
-}
-
-.cap-details p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
-  max-width: 360px;
-}
-
-.cap-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tag-pill {
-  border: 1px solid var(--line);
-  padding: 8px 14px;
-  font-size: 10px;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.4);
-  white-space: nowrap;
-  border-radius: 0px;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.tag-pill:hover {
-  border-color: var(--teal);
-  background: #fff;
-}
-
-/* Speaker Banner */
+/* Speaker Section */
 .speaker {
-  background: var(--coral);
-  color: var(--ink);
-  padding: 80px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 100px 8vw;
   position: relative;
   overflow: hidden;
 }
 
-.speaker-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.speaker-content {
-  max-width: 720px;
+.speaker::after {
+  content: "CYPHER";
+  position: absolute;
+  right: -25px;
+  bottom: -40px;
+  font-size: 13vw;
+  font-weight: 900;
+  letter-spacing: -.12em;
+  color: rgba(255, 255, 255, .03);
+  pointer-events: none;
 }
 
 .speaker .eyebrow {
-  color: rgba(24, 51, 58, 0.7);
-  font-size: 10px;
-  margin-bottom: 20px;
+  color: var(--coral);
 }
 
 .speaker h2 {
-  font-size: clamp(2.8rem, 5.5vw, 5rem);
-  line-height: 0.95;
-  letter-spacing: -.04em;
-  font-weight: 700;
-  color: var(--ink);
+  max-width: 900px;
+  margin-top: 30px;
 }
 
-.speaker-icon {
-  width: 64px;
-  height: 64px;
-  border: 1px solid rgba(24, 51, 58, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: var(--ink);
-  flex-shrink: 0;
-  transition: transform 0.5s ease;
+.speaker p {
+  margin-top: 26px;
+  color: #b8c4c2;
+  max-width: 600px;
+  font-size: 15px;
+  line-height: 1.65;
 }
 
-.speaker:hover .speaker-icon {
-  transform: rotate(180deg);
-}
-
-/* Footer Section & Clean SVG Icons */
+/* Footer Section - Matched to Image */
 .footer {
   padding: 120px 0 40px;
   border-top: 1px solid var(--line);
@@ -600,66 +692,66 @@ h1 span {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: .55fr 1.45fr;
+  grid-template-columns: .6fr 1.4fr;
   gap: 70px;
 }
 
 .footer h2 {
-  font-size: clamp(4rem, 9.5vw, 9.5rem);
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
   line-height: .88;
   letter-spacing: -.05em;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .footer h2 span {
   color: var(--teal);
 }
 
-.footer-action-links {
+.footer-links {
   display: flex;
   gap: 32px;
-  margin-top: 50px;
-  flex-wrap: wrap;
+  margin-top: 48px;
   align-items: center;
 }
 
-.action-link {
+.footer-link {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  border-bottom: 1px solid var(--ink);
+  gap: 6px;
+  border-bottom: 1.5px solid var(--ink);
   padding-bottom: 4px;
-  font-weight: 700;
 }
 
-.action-link:hover {
-  border-color: var(--teal);
-  color: var(--teal);
-}
-
-.action-link svg {
-  width: 16px;
-  height: 16px;
+.footer-link svg {
+  width: 14px;
+  height: 14px;
   fill: currentColor;
-  display: block;
+}
+
+.footer-link:hover {
+  color: var(--teal);
+  border-color: var(--teal);
 }
 
 .footline {
   border-top: 1px solid var(--line);
-  margin-top: 120px;
+  margin-top: 100px;
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
   color: var(--muted);
   font-size: 9px;
+  font-weight: 700;
 }
 
-/* Scroll Animations */
+/* Scroll Animation */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.active {
@@ -667,21 +759,21 @@ h1 span {
   transform: translateY(0);
 }
 
-/* Responsive Overrides */
+/* Responsive Styles */
 @media(max-width: 850px) {
   .header-inner {
-    width: min(100% - 48px, var(--max));
+    padding: 0 20px;
   }
   .wrap {
-    width: min(100% - 48px, var(--max));
+    width: min(100% - 32px, var(--max));
   }
   .site-nav {
     display: none;
   }
   .hero {
     grid-template-columns: 1fr;
-    gap: 65px;
-    padding-top: 55px;
+    gap: 50px;
+    padding-top: 40px;
     min-height: auto;
   }
   .signal {
@@ -695,9 +787,6 @@ h1 span {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  .section-head {
-    margin-bottom: 50px;
-  }
   .metrics-grid {
     grid-template-columns: 1fr;
   }
@@ -705,55 +794,58 @@ h1 span {
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  .job-aside {
-    padding-top: 0;
-  }
-  .cap-item {
+  .cap-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
   }
   .speaker {
-    padding: 58px 0;
-  }
-  .speaker-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
+    padding: 60px 24px;
   }
   .footline {
     flex-direction: column;
     gap: 12px;
-    margin-top: 75px;
+    margin-top: 60px;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 20px;
   }
   h1 {
-    font-size: clamp(3.8rem, 15vw, 6.5rem);
-    margin-top: 24px;
-  }
-  .hero-meta {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .hero-meta .rule {
-    display: none;
+    font-size: clamp(3.5rem, 14vw, 6rem);
   }
 }
 </style>
 </head>
 <body>
 
-<header class="site-header" id="siteHeader">
+<!-- Header with LinkedIn, GitHub icons and Connect link -->
+<header class="site-header">
   <div class="header-inner">
     <a class="brand" href="#top">
       <span class="mark">DD</span>
       <span>Dwaipayan Dutta</span>
     </a>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="#approach" class="active">APPROACH</a>
+    
+    <nav class="site-nav mono" aria-label="Main navigation">
+      <a href="#approach">APPROACH</a>
       <a href="#impact">IMPACT</a>
       <a href="#experience">EXPERIENCE</a>
       <a href="#capabilities">CAPABILITIES</a>
     </nav>
-    <a class="connect mono" href="#contact">CONNECT ↗</a>
+    
+    <div class="header-actions">
+      <!-- LinkedIn Icon -->
+      <a href="https://www.linkedin.com/in/dwaipayan-dutta/" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn Profile">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+      </a>
+      
+      <!-- GitHub Icon -->
+      <a href="https://github.com/DwaipayanDutta" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub Profile">
+        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+      </a>
+
+      <!-- Connect Link -->
+      <a class="connect-btn mono" href="#contact">CONNECT ↗</a>
+    </div>
   </div>
 </header>
 
@@ -764,17 +856,24 @@ h1 span {
     <div class="reveal">
       <div class="kicker">Bangalore · India</div>
       <h1>Dwaipayan<br><span>Dutta.</span></h1>
-      <p class="hero-role">Data Science Leader <b>|</b> AI Solution Architect</p>
+      <p class="hero-role">Data Science Leader | AI &amp; GenAI Strategy</p>
       <div class="hero-meta mono">
         <a href="#approach">See the signal <span class="arrow">↘</span></a>
         <span class="rule"></span>
-        <span>17+ years in the consequential</span>
+        <span>17+ years building AI, machine learning and decision systems that create measurable business outcomes.</span>
       </div>
     </div>
     
-    <div class="signal reveal" aria-label="Abstract decision systems graphic">
+    <!-- Interactive Radar Signal Visual -->
+    <div class="signal reveal" aria-label="Interactive visual representation of AI decision systems">
+      <div class="radar-sweep"></div>
       <div class="signal-inner">
-        <canvas id="signalCanvas"></canvas>
+        <div class="orbit"></div>
+        <div class="orbit two"></div>
+        <div class="orbit three"></div>
+        <div class="axis"></div>
+        <div class="axis two"></div>
+        <div class="node" id="signalNode"></div>
         <div class="signal-label one mono">● Signal / 01</div>
         <div class="signal-label two mono">● Impact / 07</div>
         <div class="signal-foot mono">
@@ -800,7 +899,7 @@ h1 span {
         <h2>Serious AI <span>is not a demo.</span><br>It is a change in tempo.</h2>
         <div class="note">
           My role is to connect technical strategy to organizational goals: make the model useful, the workflow durable, and the result legible to the people accountable for it.<br><br>
-          <strong>◎ Currently leading at Tata AIA Life Insurance</strong>
+          <strong>◎ Currently leading at Nagarro</strong>
         </div>
       </div>
     </div>
@@ -817,63 +916,70 @@ h1 span {
         </div>
       </div>
 
-      <div class="metrics-grid">
-        <div class="metric-card reveal">
+      <!-- Animated Metrics Grid -->
+      <div class="metrics-grid reveal">
+        
+        <!-- Metric 1 -->
+        <div class="metric-card">
           <div class="card-head mono">
             <span>01</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value" data-val="40" data-suffix="%">0%</div>
+          <div class="metric-value" data-value="40%">40%</div>
           <div class="card-foot">
             <div class="metric-label">faster issuance</div>
             <div class="metric-source mono">Tata AIA · OCR + LLM Workflow</div>
           </div>
         </div>
 
-        <div class="metric-card reveal">
+        <!-- Metric 2 -->
+        <div class="metric-card">
           <div class="card-head mono">
             <span>02</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value" data-val="99.1" data-suffix="%" data-decimals="1">0.0%</div>
+          <div class="metric-value" data-value="99.1%">99.1%</div>
           <div class="card-foot">
             <div class="metric-label">OCR accuracy</div>
             <div class="metric-source mono">KYC, PAN, Licences and NACH</div>
           </div>
         </div>
 
-        <div class="metric-card reveal">
+        <!-- Metric 3 -->
+        <div class="metric-card">
           <div class="card-head mono">
             <span>03</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value" data-val="10" data-suffix="%">0%</div>
+          <div class="metric-value" data-value="10%">10%</div>
           <div class="card-foot">
             <div class="metric-label">conversion lift</div>
             <div class="metric-source mono">Income Estimation + Pseudo PASA</div>
           </div>
         </div>
 
-        <div class="metric-card reveal">
+        <!-- Metric 4 -->
+        <div class="metric-card">
           <div class="card-head mono">
             <span>04</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value" data-prefix="$" data-val="1.9" data-suffix="M" data-decimals="1">$0.0M</div>
+          <div class="metric-value" data-value="$1.9M">$1.9M</div>
           <div class="card-foot">
             <div class="metric-label">fewer claim denials</div>
             <div class="metric-source mono">Cognizant · Predictive Modelling</div>
           </div>
         </div>
 
-        <div class="metric-card reveal">
+        <!-- Metric 5 -->
+        <div class="metric-card">
           <div class="card-head mono">
             <span>05</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value stacked">
+          <div class="metric-value stacked" data-value="USD 2.4M">
             <span>USD</span>
-            <span data-val="2.4" data-suffix="M" data-decimals="1">0.0M</span>
+            <span>2.4M</span>
           </div>
           <div class="card-foot">
             <div class="metric-label">recoveries</div>
@@ -881,26 +987,28 @@ h1 span {
           </div>
         </div>
 
-        <div class="metric-card reveal">
+        <!-- Metric 6 -->
+        <div class="metric-card">
           <div class="card-head mono">
             <span>06</span>
             <span class="card-arrow">↗</span>
           </div>
-          <div class="metric-value" data-val="15" data-suffix="%">0%</div>
+          <div class="metric-value" data-value="15%">15%</div>
           <div class="card-foot">
             <div class="metric-label">fewer out-of-stocks</div>
             <div class="metric-source mono">Infosys · Demand Forecasting</div>
           </div>
         </div>
+
       </div>
 
-      <div class="metrics-subfoot mono reveal">
+      <div class="metrics-subfoot mono">
         <span>SELECTED OUTCOMES ACROSS 2008 — PRESENT</span>
       </div>
     </div>
   </section>
 
-  <!-- Experience Section -->
+  <!-- Complete Experience Section (All 7 Jobs Included) -->
   <section id="experience" class="section">
     <div class="wrap">
       <div class="section-head reveal">
@@ -909,96 +1017,103 @@ h1 span {
           <p class="lede">From retail models to regulated AI systems, a career spent turning ambiguity into operating leverage.</p>
         </div>
       </div>
-      <div class="timeline">
+      <div class="timeline reveal">
         
-        <article class="job reveal">
-          <div class="date">05/2023 — present<br>Bangalore, India</div>
+        <!-- Job 1 -->
+        <article class="job">
+          <div class="date mono">12/2025 — Present<br>Bangalore, India</div>
           <div>
             <span class="current mono">Current</span>
+            <h3>Associate Distinguished Engineer</h3>
+            <div class="company">Nagarro</div>
+            <p>Leading multidisciplinary teams of data scientists and engineers building enterprise Agentic AI architectures. Designed SageVoice streaming voice-AI orchestration and automated SOP multi-agent systems.</p>
+          </div>
+          <div class="job-aside">
+            <span class="small mono">Technology</span><br>
+            Python · LangGraph · LLMs · Whisper · Redis · Agentic AI
+          </div>
+        </article>
+
+        <!-- Job 2 -->
+        <article class="job">
+          <div class="date mono">05/2023 — 12/2025<br>Bangalore, India</div>
+          <div>
             <h3>Head of Data Science</h3>
             <div class="company">Tata AIA Life Insurance</div>
             <p>Led cross-functional Data Science, ML-Ops, and Data Engineering teams. Built OCR and LLM workflows for PAN, license, KYC, and NACH documents; created income estimation, onboarding, recommender, propensity, and lapsation models.</p>
           </div>
           <div class="job-aside">
-            <span class="small">Technology</span><br>
+            <span class="small mono">Technology</span><br>
             Python · Azure · Document Intelligence · App Service · Gen AI
           </div>
         </article>
 
-        <article class="job reveal">
-          <div class="date">03/2020 — 05/2023<br>Bangalore, India</div>
+        <!-- Job 3 -->
+        <article class="job">
+          <div class="date mono">03/2020 — 05/2023<br>Bangalore, India</div>
           <div>
             <h3>Associate Director Data Science and AI</h3>
             <div class="company">Deloitte India Consulting</div>
             <p>Led RFPs, POCs, POVs, and end-to-end data science projects. Improved pension payout forecasting accuracy by 25% and developed PD, LD, and credit risk scorecards for banking.</p>
           </div>
           <div class="job-aside">
-            <span class="small">Technology</span><br>
+            <span class="small mono">Technology</span><br>
             Python · AWS · SAS
           </div>
         </article>
 
-        <article class="job reveal">
-          <div class="date">03/2020 — 03/2022<br>Bangalore, India</div>
-          <div>
-            <h3>Manager Data Science and AI</h3>
-            <div class="company">Deloitte</div>
-            <p>Built dealer ranking, route optimization, and sales forecasting for India’s largest refining and marketing company using automated forecasting and genetic algorithms.</p>
-          </div>
-          <div class="job-aside">
-            <span class="small">Focus</span><br>
-            Planning · Supply efficiency · Dealer performance
-          </div>
-        </article>
-
-        <article class="job reveal">
-          <div class="date">09/2018 — 03/2020<br>Bangalore, India</div>
+        <!-- Job 4 -->
+        <article class="job">
+          <div class="date mono">09/2018 — 03/2020<br>Bangalore, India</div>
           <div>
             <h3>Sr. Lead Data Scientist</h3>
             <div class="company">Infosys Consulting</div>
             <p>Led SKU demand forecasting across brands, channels, and time horizons for a global FMCG firm; reduced out-of-stock by 15% and generated USD 0.8M in incremental sales within three months.</p>
           </div>
           <div class="job-aside">
-            <span class="small">Technology</span><br>
+            <span class="small mono">Technology</span><br>
             Python · AWS SageMaker · S3 · EC2
           </div>
         </article>
 
-        <article class="job reveal">
-          <div class="date">09/2016 — 09/2018<br>Bangalore, India</div>
+        <!-- Job 5 -->
+        <article class="job">
+          <div class="date mono">09/2016 — 09/2018<br>Bangalore, India</div>
           <div>
             <h3>Team Manager Data Science</h3>
             <div class="company">Cognizant</div>
             <p>Created a claim denial prediction model with Random Forest, XGBoost, and text mining for a US-based DME manufacturer, reducing claim denials by $1.9M.</p>
           </div>
           <div class="job-aside">
-            <span class="small">Technology</span><br>
+            <span class="small mono">Technology</span><br>
             R · SAS · Python
           </div>
         </article>
 
-        <article class="job reveal">
-          <div class="date">05/2015 — 09/2016<br>Bangalore, India</div>
+        <!-- Job 6 -->
+        <article class="job">
+          <div class="date mono">05/2015 — 09/2016<br>Bangalore, India</div>
           <div>
             <h3>Assistant Manager Analytics</h3>
             <div class="company">WNS</div>
             <p>Built NLP-enabled FNOL recovery prediction and fraud detection for an Australian insurance provider; reduced fraud by 8% and contributed USD 2.4M in recoveries.</p>
           </div>
           <div class="job-aside">
-            <span class="small">Recognition</span><br>
+            <span class="small mono">Recognition</span><br>
             Runner-Up · Project of the Year
           </div>
         </article>
 
-        <article class="job reveal">
-          <div class="date">12/2008 — 05/2015<br>Vadodara, India</div>
+        <!-- Job 7 -->
+        <article class="job">
+          <div class="date mono">12/2008 — 05/2015<br>Vadodara, India</div>
           <div>
             <h3>Assistant Manager Advanced Analytics and Consulting</h3>
             <div class="company">Tata Consultancy Services</div>
             <p>Built price and promotion regression models using Nielsen data and upgraded a recommendation engine, resulting in a 7% uplift in repeat purchase rate.</p>
           </div>
           <div class="job-aside">
-            <span class="small">Technology</span><br>
+            <span class="small mono">Technology</span><br>
             R · SQL · Excel · ODBC
           </div>
         </article>
@@ -1013,107 +1128,83 @@ h1 span {
       <div class="section-head reveal">
         <div class="eyebrow">04 / Capabilities</div>
         <div>
-          <p class="copy mono" style="max-width:320px; font-size:10px; line-height:1.7;">A practical range, built across industries where the cost of a weak decision is visible.</p>
+          <p class="lede">The toolkit is broad. The standard is simple: deploy what the business can trust.</p>
         </div>
       </div>
-      
-      <div class="cap-list">
-        <div class="cap-item reveal">
-          <div class="cap-num mono">01</div>
-          <div class="cap-details">
-            <h3>Model<br>intelligence</h3>
-            <p>From statistical foundations to modern generative systems, with the discipline to choose the simplest model that earns its place.</p>
-          </div>
-          <div class="cap-tags mono">
-            <span class="tag-pill">Statistics</span>
-            <span class="tag-pill">Machine Learning</span>
-            <span class="tag-pill">Deep Learning</span>
-            <span class="tag-pill">Forecasting</span>
-            <span class="tag-pill">Classification</span>
-            <span class="tag-pill">Bagging &amp; Boosting</span>
-            <span class="tag-pill">RAG</span>
-            <span class="tag-pill">AI Agents</span>
-          </div>
+      <div class="cap-grid reveal">
+        <div class="cap">
+          <h3>Model intelligence</h3>
+          <ul>
+            <li>Machine learning</li>
+            <li>Deep learning</li>
+            <li>Forecasting</li>
+            <li>Classification</li>
+            <li>Recommender systems</li>
+            <li>Generative AI · RAG · Vision</li>
+          </ul>
         </div>
-
-        <div class="cap-item reveal">
-          <div class="cap-num mono">02</div>
-          <div class="cap-details">
-            <h3>Production<br>architecture</h3>
-            <p>Turning promising notebooks into reliable services, workflows, and operating models that teams can actually own.</p>
-          </div>
-          <div class="cap-tags mono">
-            <span class="tag-pill">AI Solution Deployment</span>
-            <span class="tag-pill">OCR</span>
-            <span class="tag-pill">Workflow Automation</span>
-            <span class="tag-pill">Model Deployment</span>
-            <span class="tag-pill">Industrialization</span>
-            <span class="tag-pill">MLOps</span>
-            <span class="tag-pill">Fast API</span>
-            <span class="tag-pill">Databricks</span>
-          </div>
+        <div class="cap">
+          <h3>Production architecture</h3>
+          <ul>
+            <li>Python · SQL · R · SAS</li>
+            <li>Azure AI · AWS</li>
+            <li>FastAPI · Streamlit</li>
+            <li>Databricks · MLOps</li>
+            <li>Agentic AI &amp; LangGraph</li>
+            <li>Model deployment &amp; APIs</li>
+          </ul>
         </div>
-
-        <div class="cap-item reveal">
-          <div class="cap-num mono">03</div>
-          <div class="cap-details">
-            <h3>Leadership<br>that lands</h3>
-            <p>Aligning technical strategy with the commercial question, then taking people with the work from RFP through measurable result.</p>
-          </div>
-          <div class="cap-tags mono">
-            <span class="tag-pill">Strategic Leadership</span>
-            <span class="tag-pill">Innovation</span>
-            <span class="tag-pill">Project Management</span>
-            <span class="tag-pill">RFP and POCs</span>
-            <span class="tag-pill">Thought Leadership</span>
-            <span class="tag-pill">Supervised Fine-Tuning</span>
-          </div>
+        <div class="cap">
+          <h3>Leadership &amp; delivery</h3>
+          <ul>
+            <li>Strategic leadership</li>
+            <li>AI Roadmap &amp; Innovation</li>
+            <li>Project management</li>
+            <li>RFPs and POCs</li>
+            <li>Industrialization</li>
+            <li>Thought leadership</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Speaker Banner -->
+  <!-- Featured Speaker Section -->
   <section class="speaker reveal">
-    <div class="wrap speaker-inner">
-      <div class="speaker-content">
-        <div class="eyebrow">// FEATURED SPEAKER</div>
-        <h2>Featured Speaker at<br>CYPHER by Analytics<br>India Magazine.</h2>
-      </div>
-      <div class="speaker-icon">
-        <span>⚏</span>
-      </div>
+    <div class="wrap">
+      <div class="eyebrow mono">05 / Signal beyond the model</div>
+      <h2>Featured speaker at<br><span>CYPHER by Analytics India Magazine.</span></h2>
+      <p>Presented innovative oil and gas analytics solutions, sharing how data science can meet the complexity of real-world energy challenges.</p>
     </div>
   </section>
 
-  <!-- Footer Section -->
+  <!-- Footer Section (Matched exactly to provided image) -->
   <footer id="contact" class="footer">
     <div class="wrap">
       <div class="footer-grid reveal">
         <div>
-          <div class="eyebrow">05 / Open channel</div>
-          <p class="copy mono" style="margin-top:24px; font-size:10px; line-height:1.7; max-width:260px;">
-            For consequential AI work, thoughtful partnerships, and the questions that sit before the model.
+          <div class="eyebrow">05 / OPEN CHANNEL</div>
+          <p class="copy" style="margin-top:28px; font-size:12px; text-transform:uppercase; letter-spacing:0.1em; line-height:1.8;">
+            FOR CONSEQUENTIAL AI WORK, THOUGHTFUL PARTNERSHIPS, AND THE QUESTIONS THAT SIT BEFORE THE MODEL.
           </p>
         </div>
         <div>
           <h2>Make the<br><span>next call.</span></h2>
-          <div class="footer-action-links mono">
-            <a class="action-link" href="https://www.linkedin.com/in/dwaipayan-dutta/" target="_blank" rel="noopener">
-              LinkedIn 
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
+          <div class="footer-links mono">
+            <a href="https://www.linkedin.com/in/dwaipayan-dutta/" target="_blank" rel="noopener" class="footer-link">
+              LINKEDIN 
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
             </a>
-            <a class="action-link" href="https://github.com/DwaipayanDutta" target="_blank" rel="noopener">
-              GitHub 
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+            <a href="https://github.com/DwaipayanDutta" target="_blank" rel="noopener" class="footer-link">
+              GITHUB 
+              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
             </a>
-            <a class="action-link" href="#" onclick="navigator.clipboard.writeText('Dwaipayan Dutta'); alert('Copied name to clipboard!'); return false;">
-              Copy Name <span style="font-size:12px; margin-left:2px;">⎘</span>
+            <a href="mailto:duttdw01@gmail.com" class="footer-link" id="copyEmailLink">
+              COPY EMAIL
             </a>
           </div>
         </div>
       </div>
-      
       <div class="footline mono">
         <span>Dwaipayan Dutta · Bangalore, India</span>
         <span>Data, when it matters.</span>
@@ -1126,183 +1217,96 @@ h1 span {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* Scroll Reveal Animations */
-  const revealElements = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        observer.unobserve(entry.target);
+  // 1. Scroll-triggered reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    const windowHeight = window.innerHeight;
+    reveals.forEach(el => {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - 80) {
+        el.classList.add('active');
       }
     });
-  }, { threshold: 0.15 });
+  };
+  
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  /* Animated Metric Counters */
-  const counterElements = document.querySelectorAll('[data-val]');
-  const counterObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const targetVal = parseFloat(el.getAttribute('data-val'));
-        const prefix = el.getAttribute('data-prefix') || '';
-        const suffix = el.getAttribute('data-suffix') || '';
-        const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
-        
-        let startTimestamp = null;
-        const duration = 1800;
-
-        const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          const easeProgress = 1 - Math.pow(1 - progress, 3);
-          const currentVal = easeProgress * targetVal;
-
-          el.innerText = `${prefix}${currentVal.toFixed(decimals)}${suffix}`;
-
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          } else {
-            el.innerText = `${prefix}${targetVal.toFixed(decimals)}${suffix}`;
-          }
-        };
-
-        window.requestAnimationFrame(step);
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  counterElements.forEach(el => counterObserver.observe(el));
-
-  /* Dynamic Canvas Signal Diagram */
-  const canvas = document.getElementById('signalCanvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let angle = 0;
-    let mouseX = 0, mouseY = 0;
-
-    function resizeCanvas() {
-      const rect = canvas.parentElement.getBoundingClientRect();
-      canvas.width = rect.width * window.devicePixelRatio;
-      canvas.height = rect.height * window.devicePixelRatio;
-      width = canvas.width;
-      height = canvas.height;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    canvas.parentElement.addEventListener('mousemove', (e) => {
-      const rect = canvas.parentElement.getBoundingClientRect();
-      mouseX = (e.clientX - rect.left - rect.width / 2) * 0.05;
-      mouseY = (e.clientY - rect.top - rect.height / 2) * 0.05;
-    });
-
-    canvas.parentElement.addEventListener('mouseleave', () => {
-      mouseX = 0;
-      mouseY = 0;
-    });
-
-    function drawSignal() {
-      const cssW = width / window.devicePixelRatio;
-      const cssH = height / window.devicePixelRatio;
-      const cX = cssW / 2 + mouseX;
-      const cY = cssH / 2 + mouseY;
-
-      ctx.clearRect(0, 0, cssW, cssH);
-
-      angle += 0.008;
-      const radii = [cssW * 0.34, cssW * 0.24, cssW * 0.14];
+  // 2. Interactive signal diagram node tracking
+  const signal = document.querySelector('.signal');
+  const node = document.getElementById('signalNode');
+  
+  if (signal && node) {
+    signal.addEventListener('mousemove', (e) => {
+      const rect = signal.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
       
-      radii.forEach((r, i) => {
-        ctx.beginPath();
-        ctx.arc(cX, cY, r, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(24, 51, 58, ${0.12 + i * 0.05})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
+      node.style.left = `${Math.max(15, Math.min(85, x))}%`;
+      node.style.top = `${Math.max(15, Math.min(85, y))}%`;
+    });
 
-        const nodeAngle = angle * (i % 2 === 0 ? 1 : -1) + (i * Math.PI / 3);
-        const nx = cX + Math.cos(nodeAngle) * r;
-        const ny = cY + Math.sin(nodeAngle) * r;
-
-        ctx.beginPath();
-        ctx.arc(nx, ny, 3, 0, Math.PI * 2);
-        ctx.fillStyle = i === 0 ? '#ef866f' : '#187b70';
-        ctx.fill();
-      });
-
-      // Axis 1
-      ctx.save();
-      ctx.translate(cX, cY);
-      ctx.rotate(0.45);
-      ctx.beginPath();
-      ctx.moveTo(0, -cssH);
-      ctx.lineTo(0, cssH);
-      ctx.strokeStyle = 'rgba(24, 123, 112, 0.4)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      ctx.restore();
-
-      // Axis 2
-      ctx.save();
-      ctx.translate(cX, cY);
-      ctx.rotate(-0.7);
-      ctx.beginPath();
-      ctx.moveTo(0, -cssH);
-      ctx.lineTo(0, cssH);
-      ctx.strokeStyle = 'rgba(239, 134, 111, 0.4)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      ctx.restore();
-
-      // Pulse Node
-      const pulse = Math.sin(angle * 3) * 2;
-      ctx.beginPath();
-      ctx.arc(cX + 5, cY + 5, 8 + pulse, 0, Math.PI * 2);
-      ctx.strokeStyle = '#ef866f';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.arc(cX + 5, cY + 5, 4, 0, Math.PI * 2);
-      ctx.fillStyle = '#ef866f';
-      ctx.fill();
-
-      requestAnimationFrame(drawSignal);
-    }
-
-    drawSignal();
+    signal.addEventListener('mouseleave', () => {
+      node.style.left = '53%';
+      node.style.top = '52%';
+    });
   }
 
-  /* Navigation Scroll Spy */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.site-nav a');
+  // 3. Counter Animation for Impact Metrics
+  const metrics = document.querySelectorAll('.metric-value');
+  let animated = false;
 
-  window.addEventListener('scroll', () => {
-    let currentSection = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.clientHeight;
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-        currentSection = section.getAttribute('id');
+  const animateMetrics = () => {
+    metrics.forEach(metric => {
+      const targetVal = metric.getAttribute('data-value');
+      if (!targetVal) return;
+
+      const numMatch = targetVal.match(/[\d.]+/);
+      if (numMatch) {
+        const targetNum = parseFloat(numMatch[0]);
+        let currentNum = 0;
+        const duration = 1500;
+        const stepTime = 30;
+        const steps = duration / stepTime;
+        const increment = targetNum / steps;
+
+        const timer = setInterval(() => {
+          currentNum += increment;
+          if (currentNum >= targetNum) {
+            clearInterval(timer);
+          }
+        }, stepTime);
       }
     });
+  };
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentSection}`) {
-        link.classList.add('active');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        animateMetrics();
+        animated = true;
       }
     });
-  });
+  }, { threshold: 0.3 });
 
+  const metricsGrid = document.querySelector('.metrics-grid');
+  if (metricsGrid) observer.observe(metricsGrid);
+
+  // 4. Copy Email Functionality
+  const copyEmailBtn = document.getElementById('copyEmailLink');
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText('duttdw01@gmail.com').then(() => {
+        const originalText = copyEmailBtn.innerText;
+        copyEmailBtn.innerText = 'COPIED!';
+        setTimeout(() => {
+          copyEmailBtn.innerText = originalText;
+        }, 2000);
+      });
+    });
+  }
 });
 </script>
-
 </body>
 </html>
